@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in| Vibely</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="h-screen w-screen flex flex-col justify-center items-center">
+    <header>
+      <section>
+        <img class="w-full" src="images/logo.svg" alt="Vibely" />
+      </section>
+    </header>
+    <main class="pt-12">
+      <section class="flex">
+        <form action="">
+          <div class="my-2">
+            <input
+              class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
+              type="text"
+              id="email"
+              name="email"
+              placeholder="phone number,username or email"
+              required
+            />
+          </div>
+          <div>
+            <input
+              class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="password"
+              length="8"
+              required
+            />
+          </div>
+          <div class="flex justify-end p-2">
+            <a href="" class="text-xs text-blue-500">Forgot password?</a>
+          </div>
+          <div class="my-6">
+            <button
+              class="w-80 bg-blue-500 text-white p-2 rounded-md text-sm hover:bg-blue-600"
+              type="submit"
+            >
+              Log in
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div>
+        <p class="text-center text-sm text-gray-400 pt-5">
+          Don't have an account?
+          <a class="text-blue-500" href="signup.html">Sign up</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
