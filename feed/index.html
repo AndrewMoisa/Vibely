@@ -7,32 +7,46 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="h-screen">
-    <header class="flex justify-between mt-3 mx-3 mb-1">
-      <section>
+    <header class="flex justify-between mt-3 mx-3 mb-1 md:px-5 xl:mx-72">
+      <div>
         <div>
-          <img class="w-20" src="/images/logo.svg" alt="Vibely logo" />
+          <a href="/feed/index.html">
+            <img
+              class="w-20 md:w-28 lg:w-32 xl:w-34"
+              src="/images/logo.svg"
+              alt="Vibely logo"
+            />
+          </a>
         </div>
-      </section>
-      <section class="flex gap-3">
+      </div>
+      <div class="flex gap-3">
         <div>
-          <img src="/images/heart.png" alt="heart icon" />
+          <img
+            class="md:w-6 lg:w-7 xl:w-8"
+            src="/images/heart.png"
+            alt="heart icon"
+          />
         </div>
         <div>
-          <img src="/images/fi-rr-paper-plane.png" alt="message icon" />
+          <img
+            class="md:w-6 lg:w-7 xl:w-8"
+            src="/images/fi-rr-paper-plane.png"
+            alt="message icon"
+          />
         </div>
-      </section>
+      </div>
     </header>
     <hr />
-    <main class="pb-10">
-      <section class="m-2">
+    <main class="pb-10 md:mx-10 xl:mx-72">
+      <section class="m-3">
         <div
           id="search"
-          class="flex rounded-md border-2 border-gray-500 overflow-hidden max-w-sm mx-auto"
+          class="flex rounded-md border-2 border-gray-500 overflow-hidden max-w-sm mx-auto lg:max-w-lg"
         >
           <input
             type="email"
             placeholder="Search Something..."
-            class="w-full outline-none bg-white text-gray-600 text-sm p-1 placeholder:text-xs"
+            class="w-full outline-none bg-white text-gray-600 text-sm p-1 placeholder:text-xs md:placeholder:text-sm md:p-2 lg:p-3 lg:placeholder:text-base"
           />
           <button
             type="button"
@@ -53,132 +67,167 @@
       </section>
       <section>
         <div class="mx-3">
-          <label class="text-sm" for="filter">Filter by:</label>
-          <select class="text-sm" id="filter" name="filter">
+          <label class="text-sm md:text-xl" for="filter">Filter by:</label>
+          <select class="text-sm md:text-xl" id="filter" name="filter">
             <option value="popular">Popular</option>
             <option value="recent">Recent</option>
             <option value="trending">Trending</option>
           </select>
         </div>
       </section>
-      <section class="mb-3">
-        <div>
-          <img
-            class="object-cover rounded-sm w-full max-h-96"
-            src="/images/avatar1.jpg"
-            alt="User avatar"
-          />
-        </div>
-        <div class="flex gap-2 m-2">
-          <img class="w-5 h-5" src="/images/fi-rr-heart.png" alt="heart icon" />
-          <img class="w-5 h-5" src="/images/comment.png" alt="comment icon" />
-          <img
-            class="w-5 h-5"
-            src="/images/fi-rr-paper-plane.png"
-            alt="send icon"
-          />
-        </div>
-        <div>
-          <p class="text-sm p-2">
-            <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Optio provident aut deserunt voluptates esse placeat libero
-            exercitationem facere nisi nesciunt, ratione, veniam minima labore!
-            Soluta consectetur officia quod voluptas mollitia.
-          </p>
-        </div>
-        <div class="px-2">
-          <input
-            class="text-xs p-1 w-full"
-            type="text"
-            placeholder="Add a comment"
-          />
-        </div>
-        <hr />
-      </section>
-      <section class="mb-3">
-        <div>
-          <img
-            class="object-cover rounded-sm w-full max-h-96"
-            src="/images/avatar2.jpg"
-            alt="User avatar"
-          />
-        </div>
-        <div class="flex gap-2 m-2">
-          <img class="w-5 h-5" src="/images/fi-rr-heart.png" alt="heart icon" />
-          <img class="w-5 h-5" src="/images/comment.png" alt="comment icon" />
-          <img
-            class="w-5 h-5"
-            src="/images/fi-rr-paper-plane.png"
-            alt="send icon"
-          />
-        </div>
-        <div>
-          <p class="text-sm p-2">
-            <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Optio provident aut deserunt voluptates esse placeat libero
-            exercitationem facere nisi nesciunt, ratione, veniam minima labore!
-            Soluta consectetur officia quod voluptas mollitia.
-          </p>
-        </div>
-        <div class="px-2">
-          <input
-            class="text-xs p-1 w-full"
-            type="text"
-            placeholder="Add a comment"
-          />
-        </div>
-        <hr />
-      </section>
-      <section class="mb-3">
-        <div>
-          <img
-            class="object-cover rounded-sm w-full max-h-96"
-            src="/images/avatar3.jpg"
-            alt="User avatar"
-          />
-        </div>
-        <div class="flex gap-2 m-2">
-          <img class="w-5 h-5" src="/images/fi-rr-heart.png" alt="heart icon" />
-          <img class="w-5 h-5" src="/images/comment.png" alt="comment icon" />
-          <img
-            class="w-5 h-5"
-            src="/images/fi-rr-paper-plane.png"
-            alt="send icon"
-          />
-        </div>
-        <div>
-          <p class="text-sm p-2">
-            <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Optio provident aut deserunt voluptates esse placeat libero
-            exercitationem facere nisi nesciunt, ratione, veniam minima labore!
-            Soluta consectetur officia quod voluptas mollitia.
-          </p>
-        </div>
-        <div class="px-2">
-          <input
-            class="text-xs p-1 w-full"
-            type="text"
-            placeholder="Add a comment"
-          />
-        </div>
-        <hr />
+      <section class="lg:grid lg:grid-cols-2 gap-5">
+        <article class="mb-3">
+          <div>
+            <img
+              class="object-cover rounded-sm w-full max-h-96"
+              src="/images/avatar1.jpg"
+              alt="User avatar"
+            />
+          </div>
+          <div class="flex gap-2 m-2">
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/fi-rr-heart.png"
+              alt="heart icon"
+            />
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/comment.png"
+              alt="comment icon"
+            />
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/fi-rr-paper-plane.png"
+              alt="send icon"
+            />
+          </div>
+          <div>
+            <p class="text-sm p-2 md:text-xl">
+              <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Optio provident aut deserunt voluptates esse placeat libero
+              exercitationem facere nisi nesciunt, ratione, veniam minima
+              labore! Soluta consectetur officia quod voluptas mollitia.
+            </p>
+          </div>
+          <div class="px-2">
+            <input
+              class="text-xs p-1 w-full md:placeholder:text-xl md:text-base lg:p-3 lg:text-xl"
+              type="text"
+              placeholder="Add a comment"
+            />
+          </div>
+          <hr />
+        </article>
+        <article class="mb-3">
+          <div>
+            <img
+              class="object-cover rounded-sm w-full max-h-96"
+              src="/images/avatar2.jpg"
+              alt="User avatar"
+            />
+          </div>
+          <div class="flex gap-2 m-2">
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/fi-rr-heart.png"
+              alt="heart icon"
+            />
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/comment.png"
+              alt="comment icon"
+            />
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/fi-rr-paper-plane.png"
+              alt="send icon"
+            />
+          </div>
+          <div>
+            <p class="text-sm p-2 md:text-xl">
+              <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Optio provident aut deserunt voluptates esse placeat libero
+              exercitationem facere nisi nesciunt, ratione, veniam minima
+              labore! Soluta consectetur officia quod voluptas mollitia.
+            </p>
+          </div>
+          <div class="px-2">
+            <input
+              class="text-xs p-1 w-full md:placeholder:text-xl md:text-base lg:p-3 lg:text-xl"
+              type="text"
+              placeholder="Add a comment"
+            />
+          </div>
+          <hr />
+        </article>
+        <article class="mb-3 md:mb-6 lg:mb-10">
+          <div>
+            <img
+              class="object-cover rounded-sm w-full max-h-96"
+              src="/images/avatar3.jpg"
+              alt="User avatar"
+            />
+          </div>
+          <div class="flex gap-2 m-2">
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/fi-rr-heart.png"
+              alt="heart icon"
+            />
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/comment.png"
+              alt="comment icon"
+            />
+            <img
+              class="w-5 h-5 md:w-7 md:h-7"
+              src="/images/fi-rr-paper-plane.png"
+              alt="send icon"
+            />
+          </div>
+          <div>
+            <p class="text-sm p-2 md:text-xl">
+              <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Optio provident aut deserunt voluptates esse placeat libero
+              exercitationem facere nisi nesciunt, ratione, veniam minima
+              labore! Soluta consectetur officia quod voluptas mollitia.
+            </p>
+          </div>
+          <div class="px-2">
+            <input
+              class="text-xs p-1 w-full md:placeholder:text-xl md:text-base lg:p-3 lg:text-xl"
+              type="text"
+              placeholder="Add a comment"
+            />
+          </div>
+          <hr />
+        </article>
       </section>
     </main>
-    <footer class="fixed bottom-0 w-full bg-white">
+    <footer class="fixed bottom-0 w-full bg-white md:px-10 xl:px-72">
       <nav>
-        <ul class="flex justify-between mx-5 p-2">
+        <ul class="flex justify-between mx-5 p-2 md:py-4">
           <a href="/feed/index.html"
-            ><img src="/images/home.png" alt="home icon"
+            ><img
+              class="md:w-6 lg:w-8 xl:w-9"
+              src="/images/home.png"
+              alt="home icon"
           /></a>
           <a href="#search"
-            ><img src="/images/search.png" alt="search icon"
+            ><img
+              class="md:w-6 lg:w-8 xl:w-9"
+              src="/images/search.png"
+              alt="search icon"
           /></a>
           <a href="/posts/index.html"
-            ><img src="/images/add.png" alt="create post icon"
+            ><img
+              class="md:w-6 lg:w-8 xl:w-9"
+              src="/images/add.png"
+              alt="create post icon"
           /></a>
           <a href="/profile/index.html"
             ><img
-              class="w-6 rounded-full"
+              class="w-6 rounded-full border border-black md:w-6 lg:w-8 xl:w-9"
               src="/images/guest.png"
               alt="account icon"
           /></a>
