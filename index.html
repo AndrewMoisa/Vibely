@@ -5,28 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in | Vibely</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="/images/favicon.ico" />
   </head>
   <body class="h-screen w-screen flex flex-col justify-center items-center">
-    <header class="flex justify-between mt-3 mx-3 mb-1">
-      <div>
-        <div>
-          <a href="/feed/index.html">
-            <img class="w-20" src="/images/logo.svg" alt="Vibely logo" />
-          </a>
-        </div>
-      </div>
-      <div class="flex gap-3">
-        <div>
-          <img src="/images/heart.png" alt="heart icon" />
-        </div>
-        <div>
-          <img src="/images/fi-rr-paper-plane.png" alt="message icon" />
-        </div>
-      </div>
+    <header>
+      <section>
+        <img class="w-full" src="images/logo.svg" alt="Vibely" />
+      </section>
     </header>
     <main class="pt-12">
       <section class="flex">
-        <form action="">
+        <form action="/profile/index.html">
           <div class="my-2">
             <input
               class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
@@ -52,13 +41,13 @@
             <a href="" class="text-xs text-blue-500">Forgot password?</a>
           </div>
           <div class="my-6">
-            <a
+            <button
               class="flex justify-center w-full bg-blue-500 text-white p-2 rounded-md text-sm hover:bg-blue-600"
               type="submit"
               href="feed/index.html"
             >
               Log in
-            </a>
+            </button>
           </div>
         </form>
       </section>
