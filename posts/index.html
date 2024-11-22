@@ -7,20 +7,32 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="flex justify-between mt-3 mx-3 mb-1">
+    <header class="flex justify-between mt-3 mx-3 mb-1 md:mx-20 xl:mx-72">
       <div>
         <div>
           <a href="/feed/index.html">
-            <img class="w-20" src="/images/logo.svg" alt="Vibely logo" />
+            <img
+              class="w-20 md:w-28 lg:w-32 xl:w-34"
+              src="/images/logo.svg"
+              alt="Vibely logo"
+            />
           </a>
         </div>
       </div>
       <div class="flex gap-3">
         <div>
-          <img src="/images/heart.png" alt="heart icon" />
+          <img
+            class="md:w-6 lg:w-7 xl:w-8"
+            src="/images/heart.png"
+            alt="heart icon"
+          />
         </div>
         <div>
-          <img src="/images/fi-rr-paper-plane.png" alt="message icon" />
+          <img
+            class="md:w-6 lg:w-7 xl:w-8"
+            src="/images/fi-rr-paper-plane.png"
+            alt="message icon"
+          />
         </div>
       </div>
     </header>
@@ -32,7 +44,7 @@
           <div class="mb-4">
             <label
               for="postTitle"
-              class="block text-sm font-medium text-gray-700"
+              class="block text-sm font-medium text-gray-700 md:text-base lg:text-lg xl:text-xl"
               >Title</label
             >
             <input
@@ -46,7 +58,7 @@
           <div class="mb-4">
             <label
               for="postContent"
-              class="block text-sm font-medium text-gray-700"
+              class="block text-sm font-medium text-gray-700 md:text-base lg:text-lg xl:text-xl"
               >Content</label
             >
             <textarea
@@ -60,20 +72,20 @@
           <div class="mb-4">
             <label
               for="postImage"
-              class="block text-sm font-medium text-gray-700"
+              class="block text-sm font-medium text-gray-700 md:text-base lg:text-lg xl:text-xl"
               >Image</label
             >
             <input
               type="file"
               id="postImage"
               name="image"
-              class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 md:text-base lg:text-lg xl:text-xl"
             />
           </div>
           <div class="flex justify-end">
             <button
               type="submit"
-              class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-base lg:text-lg xl:text-xl"
             >
               Post
             </button>
@@ -81,25 +93,70 @@
         </form>
       </section>
     </main>
-    <footer class="fixed bottom-0 w-full bg-white">
+    <footer>
       <nav>
-        <ul class="flex justify-between mx-5 p-2">
-          <a href="/feed/index.html"
-            ><img src="/images/home.png" alt="home icon"
-          /></a>
-          <a href="/feed/index.html"
-            ><img src="/images/search.png" alt="search icon"
-          /></a>
-          <a href="/posts/index.html"
-            ><img src="/images/add.png" alt="create post icon"
-          /></a>
-          <a href="/profile/index.html"
-            ><img
-              class="w-6 rounded-full"
-              src="/images/guest.png"
-              alt="account icon"
-          /></a>
-        </ul>
+        <div class="hidden xl:block xl:fixed xl:left-16 xl:top-40">
+          <ul class="flex flex-col gap-16">
+            <a class="text-xl flex gap-3 items-center" href="/feed/index.html"
+              ><img
+                class="w-7 inline-block"
+                src="/images/home.png"
+                alt="home icon"
+              />Home</a
+            >
+            <a class="text-xl flex gap-3 items-center" href="#search"
+              ><img
+                class="w-7"
+                src="/images/search.png"
+                alt="search icon"
+              />Search</a
+            >
+            <a class="text-xl flex gap-3 items-center" href="/posts/index.html"
+              ><img
+                class="w-7"
+                src="/images/add.png"
+                alt="create post icon"
+              />Create</a
+            >
+            <a
+              class="text-xl flex gap-3 items-center"
+              href="/profile/index.html"
+              ><img
+                class="rounded-full border border-black w-7"
+                src="/images/guest.png"
+                alt="account icon"
+              />Profile</a
+            >
+          </ul>
+        </div>
+        <div class="fixed bottom-0 w-full bg-white md:px-16 xl:px-72">
+          <ul class="flex justify-between mx-5 p-2 md:py-4 xl:hidden">
+            <a href="/feed/index.html"
+              ><img
+                class="md:w-6 lg:w-8 xl:w-9"
+                src="/images/home.png"
+                alt="home icon"
+            /></a>
+            <a href="#search"
+              ><img
+                class="md:w-6 lg:w-8 xl:w-9"
+                src="/images/search.png"
+                alt="search icon"
+            /></a>
+            <a href="/posts/index.html"
+              ><img
+                class="md:w-6 lg:w-8 xl:w-9"
+                src="/images/add.png"
+                alt="create post icon"
+            /></a>
+            <a href="/profile/index.html"
+              ><img
+                class="w-6 rounded-full border border-black md:w-6 lg:w-8 xl:w-9"
+                src="/images/guest.png"
+                alt="account icon"
+            /></a>
+          </ul>
+        </div>
       </nav>
     </footer>
   </body>
