@@ -44,6 +44,44 @@
     </header>
     <hr />
     <main class="md:mx-20 xl:mx-80">
+      <section>
+        <div class="hidden xl:block xl:fixed xl:left-16 xl:top-40">
+          <ul class="flex flex-col gap-16">
+            <a
+              class="text-xl flex gap-3 items-center border-b-4 border-blue-500 pb-1 rounded-sm"
+              href="/feed/index.html"
+              ><img
+                class="w-7 inline-block"
+                src="/images/home.png"
+                alt="home icon"
+              />Home</a
+            >
+            <a class="text-xl flex gap-3 items-center" href="#search"
+              ><img
+                class="w-7"
+                src="/images/search.png"
+                alt="search icon"
+              />Search</a
+            >
+            <a class="text-xl flex gap-3 items-center" href="/posts/index.html"
+              ><img
+                class="w-7"
+                src="/images/add.png"
+                alt="create post icon"
+              />Create</a
+            >
+            <a
+              class="text-xl flex gap-3 items-center"
+              href="/profile/index.html"
+              ><img
+                class="rounded-full border border-black w-7"
+                src="/images/guest.png"
+                alt="account icon"
+              />Profile</a
+            >
+          </ul>
+        </div>
+      </section>
       <section class="flex justify-between items-center px-6 py-4 lg:p-10">
         <div>
           <img
@@ -208,43 +246,7 @@
           </a>
         </div>
       </section>
-    </main>
-    <footer>
-      <nav>
-        <div class="hidden xl:block xl:fixed xl:left-16 xl:top-40">
-          <ul class="flex flex-col gap-16">
-            <a class="text-xl flex gap-3 items-center" href="/feed/index.html"
-              ><img
-                class="w-7 inline-block"
-                src="/images/home.png"
-                alt="home icon"
-              />Home</a
-            >
-            <a class="text-xl flex gap-3 items-center" href="#search"
-              ><img
-                class="w-7"
-                src="/images/search.png"
-                alt="search icon"
-              />Search</a
-            >
-            <a class="text-xl flex gap-3 items-center" href="/posts/index.html"
-              ><img
-                class="w-7"
-                src="/images/add.png"
-                alt="create post icon"
-              />Create</a
-            >
-            <a
-              class="text-xl flex gap-3 items-center border-b-4 border-blue-500 pb-1 rounded-sm"
-              href="/profile/index.html"
-              ><img
-                class="rounded-full border border-black w-7"
-                src="/images/guest.png"
-                alt="account icon"
-              />Profile</a
-            >
-          </ul>
-        </div>
+      <section>
         <div class="fixed bottom-0 w-full bg-white md:px-16 xl:px-72">
           <ul class="flex justify-between mx-5 p-2 md:py-4 xl:hidden">
             <a href="/feed/index.html"
@@ -265,15 +267,16 @@
                 src="/images/add.png"
                 alt="create post icon"
             /></a>
-            <a href="/profile/index.html"
+            <a href="/profile/index.html" class="border-b-4 border-blue-500"
               ><img
-                class="w-6 rounded-full border border-black md:w-6 lg:w-8 xl:w-9"
+                class="w-6 rounded-full md:w-6 lg:w-8 xl:w-9"
                 src="/images/guest.png"
                 alt="account icon"
             /></a>
           </ul>
         </div>
-      </nav>
-    </footer>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>
