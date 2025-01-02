@@ -11,18 +11,14 @@ export async function registerUser(user) {
     body: JSON.stringify(user),
   };
 
-  try {
-    const response = await fetch(url, options);
-    const json = await response.json();
+  const response = await fetch(url, options);
+  const json = await response.json();
 
-    console.log(json);
+  console.log(json);
+  console.log(response);
 
-    if (!response.ok) {
-      throw new Error(json.errors?.[0].message || "Registration failed");
-    }
-    return json;
-  } catch (error) {
-    console.error("Error registering user:", error);
-    throw error;
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Registration failed");
   }
+  return json;
 }
