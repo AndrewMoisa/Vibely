@@ -1,3 +1,4 @@
+import { loginHandler } from "./logic/handlers/loginHandler.js";
 import { registerHandler } from "./logic/handlers/registerHandlers.js";
 
 function router() {
@@ -6,6 +7,12 @@ function router() {
 
   switch (pathname) {
     case "/":
+      loginHandler();
+      break;
+    case "/index.html":
+      loginHandler();
+      break;
+
     case "/register/":
       registerHandler();
       break;

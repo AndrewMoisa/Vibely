@@ -1,10 +1,10 @@
-import { registerUser } from "../auth/register.js";
+import { loginUser } from "../auth/login.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
+import { saveToken, saveUsername } from "../utils/localStorage.js";
 
-export function registerHandler() {
-  const form = document.querySelector("#registerForm");
-  console.log("registerHandler");
+export function loginHandler() {
+  const form = document.querySelector("#loginForm");
 
   if (form) {
     form.addEventListener("submit", submitForm);
@@ -20,37 +20,23 @@ async function submitForm(event) {
 
   console.log(data);
 
-  if (data.bio.trim() === "") {
-    delete data.bio;
-  }
-
-  // if (data.profileImage.trim() === "") {
-  //   delete data.avatar;
-  // // } else {
-  // //   data.avatar = {
-  // //     url: data.avatar.url,
-  // //     alt: `${data.name}'s avatar`,
-  // //   };
-  // //   delete data.avatarUrl;
-  // // }
-
   const containerMsg = document.querySelector("#message");
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");
 
-  console.log(types.success);
-
   try {
     fieldset.disabled = true;
-    button.disabled = true;
-    await registerUser(data);
-    displayMessage(
-      containerMsg,
-      types.success.classes,
-      "Registration successful",
-      types.success.icon
-    );
-    form.reset();
+    button.textContent = "Loading...";
+    const response = await loginUser(data);
+    const { data: userData } = response;
+
+    console.log(userData);
+    const { accessToken, name } = userData;
+
+    saveToken(accessToken);
+    saveUsername(name);
+
+    window.location.href = "../../../profile/";
   } catch (error) {
     displayMessage(
       containerMsg,
@@ -60,6 +46,6 @@ async function submitForm(event) {
     );
   } finally {
     fieldset.disabled = false;
-    button.disabled = false;
+    button.textContent = "Submit";
   }
 }
