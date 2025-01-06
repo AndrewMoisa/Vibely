@@ -1,7 +1,7 @@
 import { loginUser } from "../auth/login.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
-import { saveToken, saveUsername } from "../utils/localStorage.js";
+import { saveToken, saveUsername } from "../utils/storage.js";
 
 export function loginHandler() {
   const form = document.querySelector("#loginForm");

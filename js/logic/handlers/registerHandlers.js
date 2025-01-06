@@ -50,6 +50,15 @@ async function submitForm(event) {
       "Registration successful",
       types.success.icon
     );
+
+    containerMsg.innerHTML += `
+    <div>
+          <p class="text-center text-sm text-gray-400 pt-5">
+            You can now log in with your new account.
+            <a class="text-blue-500" href="/">Log in</a>
+          </p>
+        </div>`;
+
     form.reset();
   } catch (error) {
     displayMessage(
