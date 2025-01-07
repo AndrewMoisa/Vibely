@@ -5,7 +5,7 @@ export async function fetchProfile() {
   const token = getToken();
   const name = getUsername();
 
-  const url = profileUrl + name;
+  const url = `${profileUrl}${name}`;
 
   console.log(name);
 
