@@ -6,7 +6,7 @@ export function saveToken(token) {
 }
 
 export function getToken() {
-  localStorage.getItem(TOKEN_KEY);
+  return localStorage.getItem(TOKEN_KEY);
 }
 
 export function saveUsername(username) {
@@ -14,5 +14,5 @@ export function saveUsername(username) {
 }
 
 export function getUsername() {
-  localStorage.getItem(USERNAME_KEY);
+  return localStorage.getItem(USERNAME_KEY);
 }

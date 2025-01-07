@@ -38,6 +38,7 @@ async function submitForm(event) {
 
     window.location.href = "../../../profile/";
   } catch (error) {
+    console.log(error);
     displayMessage(
       containerMsg,
       types.error.classes,
