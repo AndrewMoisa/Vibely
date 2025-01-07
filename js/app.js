@@ -1,6 +1,6 @@
 import { loginHandler } from "./logic/handlers/loginHandler.js";
 import { registerHandler } from "./logic/handlers/registerHandlers.js";
-import { fetchProfile } from "./logic/posts/create.js";
+import { fetchProfile } from "./logic/profile/profile.js";
 
 function router() {
   const pathname = window.location.pathname;
