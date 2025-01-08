@@ -1,4 +1,4 @@
-import { registerUser } from "../auth/register.js";
+import { registerUser } from "../api/register.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 

@@ -1,4 +1,4 @@
-import { loginUser } from "../auth/login.js";
+import { loginUser } from "../api/login.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 import { saveToken, saveUsername } from "../utils/storage.js";

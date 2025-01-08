@@ -1,4 +1,5 @@
-import { apikey, profileUrl } from "../../constants/constants.js";
+import { profileUrl } from "../../constants/constants.js";
+import { createFetchOptions } from "../utils/createFetchOptions.js";
 import { getToken, getUsername } from "../utils/storage.js";
 
 export async function fetchProfile() {
@@ -7,23 +8,14 @@ export async function fetchProfile() {
 
   const url = `${profileUrl}${name}`;
 
-  console.log(name);
-
-  console.log(token);
-
   if (!token) {
     console.log("No token, please log in");
-    return;
+    throw new Error("No token provided");
   }
 
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-      "X-Noroff-API-Key": apikey,
-    },
-  };
+  const options = createFetchOptions(token);
+
+  console.log(options);
 
   const response = await fetch(url, options);
   const json = await response.json();
