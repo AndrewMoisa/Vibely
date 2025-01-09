@@ -44,48 +44,14 @@
     </header>
     <hr />
     <main>
-      <section>
-        <div class="hidden xl:block xl:fixed xl:left-16 xl:top-40">
-          <ul class="flex flex-col gap-16">
-            <a
-              class="text-xl flex gap-3 items-center border-b-4 border-blue-500 pb-1 rounded-sm"
-              href="/feed/index.html"
-              ><img
-                class="w-7 inline-block"
-                src="/images/home.png"
-                alt="home icon"
-              />Home</a
-            >
-            <a class="text-xl flex gap-3 items-center" href="#search"
-              ><img
-                class="w-7"
-                src="/images/search.png"
-                alt="search icon"
-              />Search</a
-            >
-            <a class="text-xl flex gap-3 items-center" href="/posts/index.html"
-              ><img
-                class="w-7"
-                src="/images/add.png"
-                alt="create post icon"
-              />Create</a
-            >
-            <a
-              class="text-xl flex gap-3 items-center"
-              href="/profile/index.html"
-              ><img
-                class="rounded-full border border-black w-7"
-                src="/images/guest.png"
-                alt="account icon"
-              />Profile</a
-            >
-          </ul>
-        </div>
-      </section>
-      <section class="max-w-xl mx-auto mt-5 p-5 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4">Create a New Post</h2>
-        <form class="">
-          <div class="mb-4">
+      <section
+        class="max-w-xl mx-2 sm:mx-auto mt-10 p-5 bg-white rounded-lg shadow-md"
+      >
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">
+          Create a New Post
+        </h2>
+        <form class="mt-5">
+          <div class="mb-10">
             <label
               for="postContent"
               class="block text-sm font-medium text-gray-700 md:text-base lg:text-lg xl:text-xl"
@@ -99,10 +65,10 @@
               required
             ></textarea>
           </div>
-          <div class="mb-4">
+          <div class="mb-10">
             <label
               for="postImage"
-              class="block text-sm font-medium text-gray-700 md:text-base lg:text-lg xl:text-xl"
+              class="block text-sm font-medium text-gray-700 md:text-base lg:text-lg xl:text-xl pb-2"
               >Image</label
             >
             <input
@@ -112,7 +78,7 @@
               class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 md:text-base lg:text-lg xl:text-xl"
             />
           </div>
-          <div class="flex justify-end">
+          <div class="flex justify-end mb-10">
             <button
               type="submit"
               class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 md:text-base lg:text-lg xl:text-xl"
@@ -121,36 +87,6 @@
             </button>
           </div>
         </form>
-      </section>
-      <section>
-        <div class="fixed bottom-0 w-full bg-white md:px-16 xl:px-72">
-          <ul class="flex justify-between mx-5 p-2 md:py-4 xl:hidden">
-            <a href="/feed/index.html"
-              ><img
-                class="md:w-6 lg:w-8 xl:w-9"
-                src="/images/home.png"
-                alt="home icon"
-            /></a>
-            <a href="#search"
-              ><img
-                class="md:w-6 lg:w-8 xl:w-9"
-                src="/images/search.png"
-                alt="search icon"
-            /></a>
-            <a href="/posts/index.html" class="border-b-4 border-blue-500"
-              ><img
-                class="md:w-6 lg:w-8 xl:w-9"
-                src="/images/add.png"
-                alt="create post icon"
-            /></a>
-            <a href="/profile/index.html"
-              ><img
-                class="w-6 rounded-full border border-black md:w-6 lg:w-8 xl:w-9"
-                src="/images/guest.png"
-                alt="account icon"
-            /></a>
-          </ul>
-        </div>
       </section>
     </main>
     <footer></footer>

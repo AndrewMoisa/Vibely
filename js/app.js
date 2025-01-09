@@ -1,6 +1,8 @@
 import { loginHandler } from "./logic/handlers/loginHandler.js";
 import { registerHandler } from "./logic/handlers/registerHandlers.js";
-import { fetchProfile } from "./logic/api/profile.js";
+import { profileHandler } from "./logic/handlers/profileHandler.js";
+import { renderMenu } from "./ui/shared/renderMenu.js";
+import { renderHeader } from "./ui/shared/renderHeader.js";
 
 function router() {
   const pathname = window.location.pathname;
@@ -18,7 +20,10 @@ function router() {
 
     case "/profile/index.html":
     case "/profile/":
-      fetchProfile();
+      document.addEventListener("DOMContentLoaded", renderHeader);
+      document.addEventListener("DOMContentLoaded", renderMenu);
+      document.addEventListener("DOMContentLoaded", profileHandler);
+
       break;
   }
 }

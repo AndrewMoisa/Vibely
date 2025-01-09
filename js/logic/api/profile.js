@@ -5,6 +5,10 @@ import { getUsername } from "../utils/storage.js";
 export async function fetchProfile() {
   const name = getUsername();
 
+  if (!name) {
+    throw new Error("No username in local storage");
+  }
+
   const url = `${profileUrl}${name}`;
 
   const options = createFetchOptions("GET");
