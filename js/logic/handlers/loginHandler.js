@@ -1,7 +1,7 @@
-import { loginUser } from "../auth/login.js";
+import { loginUser } from "../api/login.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
-import { saveToken, saveUsername } from "../utils/localStorage.js";
+import { saveToken, saveUsername } from "../utils/storage.js";
 
 export function loginHandler() {
   const form = document.querySelector("#loginForm");
@@ -38,6 +38,7 @@ async function submitForm(event) {
 
     window.location.href = "../../../profile/";
   } catch (error) {
+    console.log(error);
     displayMessage(
       containerMsg,
       types.error.classes,
