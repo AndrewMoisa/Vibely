@@ -38,7 +38,7 @@ export function renderHeader() {
   // Create the heart icon
   const heartIconContainer = document.createElement("div");
   const heartIcon = document.createElement("img");
-  heartIcon.classList.add("md:w-6", "lg:w-7", "xl:w-8");
+  heartIcon.classList.add("w-5", "lg:w-6", "xl:w-7");
   heartIcon.src = "/images/heart.png";
   heartIcon.alt = "heart icon";
   heartIconContainer.appendChild(heartIcon);

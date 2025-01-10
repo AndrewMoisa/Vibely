@@ -25,6 +25,11 @@ function router() {
       document.addEventListener("DOMContentLoaded", profileHandler);
 
       break;
+
+    case "/posts/index.html":
+    case "/posts/":
+      document.addEventListener("DOMContentLoaded", renderHeader);
+      document.addEventListener("DOMContentLoaded", renderMenu);
   }
 }
 

@@ -6,44 +6,15 @@
     <title>Create a post | Vibely</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="/images/favicon.ico" />
+    <script type="module" src="/js/app.js"></script>
     <meta name="description" content="Create post page of Vibely user" />
     <meta name="keywords" content="Vibely, profile, social media" />
     <meta name="author" content="Vibely" />
   </head>
   <body>
-    <header class="flex justify-between mt-3 mx-3 mb-1 md:mx-20 xl:mx-72">
-      <div>
-        <div>
-          <a href="/feed/index.html">
-            <img
-              class="w-20 md:w-28 lg:w-32 xl:w-34"
-              src="/images/logo.svg"
-              alt="Vibely logo"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="flex justify-center items-center gap-3">
-        <div>
-          <img
-            class="md:w-6 lg:w-7 xl:w-8"
-            src="/images/heart.png"
-            alt="heart icon"
-          />
-        </div>
-        <div>
-          <a href="/index.html">
-            <img
-              class="w-5 lg:w-6 xl:w-7"
-              src="/images/logout.png"
-              alt="message icon"
-            />
-          </a>
-        </div>
-      </div>
-    </header>
-    <hr />
-    <main>
+    <header id="headerContainer"></header>
+    <main id="mainContainer" class="md:mx-20 xl:mx-80">
+      <div id="loadingContainer">Loading...</div>
       <section
         class="max-w-xl mx-2 sm:mx-auto mt-10 p-5 bg-white rounded-lg shadow-md"
       >
@@ -89,6 +60,6 @@
         </form>
       </section>
     </main>
-    <footer></footer>
+    <footer id="footerContainer"></footer>
   </body>
 </html>

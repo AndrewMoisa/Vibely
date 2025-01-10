@@ -6,7 +6,7 @@ export function renderMenu() {
   // Create the nav element
   const nav = document.createElement("nav");
   nav.className =
-    "fixed bottom-0 w-full bg-white mx-3 md:px-16 xl:block xl:fixed xl:left-6 xl:top-40 xl:w-64";
+    "fixed bottom-0 w-full bg-white md:px-16 xl:block xl:fixed xl:left-6 xl:top-40 xl:w-64";
 
   // Create the ul element
   const ul = document.createElement("ul");

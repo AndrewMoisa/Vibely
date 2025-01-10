@@ -1,8 +1,6 @@
-export function renderProfile(data) {
+export function renderProfile(data, container) {
   // Clear the container
   document.querySelector("#loadingContainer").innerHTML = "";
-
-  const mainContainer = document.querySelector("main");
 
   // Create the section element
   const section = document.createElement("section");
@@ -16,7 +14,8 @@ export function renderProfile(data) {
   const profileImg = document.createElement("img");
   profileImg.className = "rounded-full w-20 md:w-24 lg:w-32 xl:w-36";
   profileImg.src = "/images/guest.png";
-  profileImg.alt = "profile picture";
+  profileImg.src = data.avatar.url ? data.avatar.url : "/images/guest.png";
+  profileImg.alt = data.avatar.alt ? data.avatar.alt : "Profile Picture";
   profilePicDiv.appendChild(profileImg);
 
   // Create the stats div
@@ -76,7 +75,7 @@ export function renderProfile(data) {
   section.appendChild(div2);
 
   // Append the section to the container
-  mainContainer.appendChild(section);
+  container.appendChild(section);
 
   function createStat(count, label) {
     const statDiv = document.createElement("div");

@@ -1,6 +1,7 @@
 import { registerUser } from "../api/register.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
+import { renderLoginMessage } from "../../ui/register/renderLoginMessage.js";
 
 export function registerHandler() {
   const form = document.querySelector("#registerForm");
@@ -24,16 +25,6 @@ async function submitForm(event) {
     delete data.bio;
   }
 
-  // if (data.profileImage.trim() === "") {
-  //   delete data.avatar;
-  // // } else {
-  // //   data.avatar = {
-  // //     url: data.avatar.url,
-  // //     alt: `${data.name}'s avatar`,
-  // //   };
-  // //   delete data.avatarUrl;
-  // // }
-
   const containerMsg = document.querySelector("#message");
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");
@@ -51,13 +42,7 @@ async function submitForm(event) {
       types.success.icon
     );
 
-    containerMsg.innerHTML += `
-    <div>
-          <p class="text-center text-sm text-gray-400 pt-5">
-            You can now log in with your new account.
-            <a class="text-blue-500" href="/">Log in</a>
-          </p>
-        </div>`;
+    renderLoginMessage(containerMsg);
 
     form.reset();
   } catch (error) {
