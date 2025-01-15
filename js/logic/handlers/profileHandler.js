@@ -10,15 +10,17 @@ export async function profileHandler() {
   try {
     const mainContainer = document.querySelector("main");
 
+    // Clear the container
+    document.querySelector("#loadingContainer").innerHTML = "";
+
     const profileDetails = await fetchProfile();
     renderProfile(profileDetails.data, mainContainer);
 
     const profilePosts = await fetchProfilePosts();
     renderProfilePosts(profilePosts.data, mainContainer);
 
-    console.log(profilePosts.data);
-
-    console.log(profileDetails.data);
+    console.log(profileDetails);
+    console.log(profilePosts);
   } catch (error) {
     displayMessage(
       loadingContainer,

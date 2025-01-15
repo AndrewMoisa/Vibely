@@ -1,11 +1,14 @@
-import { registerUser } from "../api/register.js";
+import { renderCreatePost } from "../../ui/createPost/renderCreatePost.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
-import { renderLoginMessage } from "../../ui/register/renderLoginMessage.js";
+import { createPost } from "../api/createPosts.js";
 
-export function registerHandler() {
-  const form = document.querySelector("#registerForm");
+export async function createPostHandler() {
+  document.querySelector("#loadingContainer").innerHTML = "";
 
+  renderCreatePost();
+
+  const form = document.querySelector("#createPost");
   if (form) {
     form.addEventListener("submit", submitForm);
   }
@@ -18,30 +21,39 @@ async function submitForm(event) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
 
-  console.log(data);
+  if (data.mediaUrl || data.mediaAlt) {
+    data.media = {};
 
-  if (data.bio.trim() === "") {
-    delete data.bio;
+    if (data.mediaUrl) {
+      data.media.url = data.mediaUrl.trim();
+    }
+
+    if (data.mediaAlt) {
+      data.media.alt = data.mediaAlt.trim();
+    }
+
+    delete data.mediaUrl;
+    delete data.mediaAlt;
+  } else {
+    delete data.mediaUrl;
+    delete data.mediaAlt;
   }
 
+  console.log(data);
   const containerMsg = document.querySelector("#message");
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");
 
-  console.log(types.success);
-
   try {
     fieldset.disabled = true;
     button.disabled = true;
-    await registerUser(data);
+    await createPost(data);
     displayMessage(
       containerMsg,
       types.success.classes,
-      "Registration successful",
+      "Post created successful",
       types.success.icon
     );
-
-    renderLoginMessage(containerMsg);
 
     form.reset();
   } catch (error) {

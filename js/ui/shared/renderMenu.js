@@ -1,5 +1,6 @@
 export function renderMenu() {
   const currentPageUrl = window.location.pathname;
+
   // Create the section element
   const section = document.createElement("section");
 

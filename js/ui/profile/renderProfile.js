@@ -1,7 +1,4 @@
 export function renderProfile(data, container) {
-  // Clear the container
-  document.querySelector("#loadingContainer").innerHTML = "";
-
   // Create the section element
   const section = document.createElement("section");
 
