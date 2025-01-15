@@ -40,7 +40,7 @@ export function renderProfilePosts(data, container) {
     // Create the image (img) element
     const img = document.createElement("img");
     img.className =
-      "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"; // Zoom effect on hover
+      "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"; // Zoom effect on hover with shadow
     img.src = item.media?.url ? item.media.url : `/images/noimg.png`; // Set src from data
 
     console.log(item.media?.url);

@@ -23,6 +23,7 @@ export async function profileHandler() {
     console.log(profilePosts);
   } catch (error) {
     displayMessage(
+      console.log(error),
       loadingContainer,
       types.error.classes,
       error.message,
