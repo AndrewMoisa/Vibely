@@ -43,8 +43,6 @@ export function renderProfilePosts(data, container) {
       "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"; // Zoom effect on hover with shadow
     img.src = item.media?.url ? item.media.url : `/images/noimg.png`; // Set src from data
 
-    console.log(item.media?.url);
-
     img.alt = item.media?.alt; // Set alt from data
 
     // Create an overlay div for additional hover effects

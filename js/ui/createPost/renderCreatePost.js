@@ -1,4 +1,4 @@
-export function renderCreatePost() {
+export function renderCreatePost(action) {
   // Create the section element
   const section = document.createElement("section");
   section.classList.add(
@@ -15,7 +15,7 @@ export function renderCreatePost() {
   // Create the heading
   const heading = document.createElement("h2");
   heading.classList.add("text-xl", "md:text-2xl", "font-semibold", "mb-4");
-  heading.textContent = "Create a New Post";
+  heading.textContent = `${action} post`;
 
   // Create the message div
   const messageDiv = document.createElement("div");
@@ -200,7 +200,7 @@ export function renderCreatePost() {
     "lg:text-lg",
     "xl:text-xl"
   );
-  submitButton.textContent = "Post";
+  submitButton.textContent = `${action} post`;
 
   // Append the submit button to the submit group
   submitGroup.appendChild(submitButton);

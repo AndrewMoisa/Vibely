@@ -1,8 +1,4 @@
-import { getUsername } from "../../logic/utils/storage.js";
-import { formatDate } from "../shared/formatDate.js";
-
 export function renderPost(container, user, post, postDate) {
-  console.log(post);
   // Create the section element
   const section = document.createElement("section");
   section.className = "flex flex-col items-center justify-center";
@@ -120,6 +116,10 @@ export function renderPost(container, user, post, postDate) {
   editButton.className =
     "bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700";
   editButton.textContent = "Edit";
+  editButton.id = "editButton";
+  editButton.addEventListener("click", () => {
+    window.location.href = `/edit/?id=${post.id}`;
+  });
 
   const deleteButton = document.createElement("button");
   deleteButton.className =

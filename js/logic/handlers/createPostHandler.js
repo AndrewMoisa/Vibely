@@ -6,7 +6,7 @@ import { createPost } from "../api/createPosts.js";
 export async function createPostHandler() {
   document.querySelector("#loadingContainer").innerHTML = "";
 
-  renderCreatePost();
+  renderCreatePost("Create");
 
   const form = document.querySelector("#createPost");
   if (form) {

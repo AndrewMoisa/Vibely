@@ -8,7 +8,7 @@ export async function singlePost(id) {
 
   const options = createFetchOptions("GET");
 
-  const url = `${postsUrl}/${id}`;
+  const url = `${postsUrl}/${id}/?_author=true`;
 
   const response = await fetch(url, options);
   const json = await response.json();

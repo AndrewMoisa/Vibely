@@ -5,6 +5,7 @@ import { renderMenu } from "./ui/shared/renderMenu.js";
 import { renderHeader } from "./ui/shared/renderHeader.js";
 import { createPostHandler } from "./logic/handlers/createPostHandler.js";
 import { postHandler } from "./logic/handlers/postHandler.js";
+import { editPostHandler } from "./logic/handlers/editPostHandler.js";
 
 function router() {
   const pathname = window.location.pathname;
@@ -23,8 +24,8 @@ function router() {
     case "/profile/index.html":
     case "/profile/":
       document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
       document.addEventListener("DOMContentLoaded", profileHandler);
+      document.addEventListener("DOMContentLoaded", renderMenu);
 
       break;
 
@@ -40,6 +41,15 @@ function router() {
       document.addEventListener("DOMContentLoaded", renderHeader);
       document.addEventListener("DOMContentLoaded", renderMenu);
       document.addEventListener("DOMContentLoaded", postHandler);
+
+      break;
+
+    case "/edit/index.html":
+    case "/edit/":
+      document.addEventListener("DOMContentLoaded", renderHeader);
+      document.addEventListener("DOMContentLoaded", renderMenu);
+      document.addEventListener("DOMContentLoaded", editPostHandler);
+
       break;
   }
 }

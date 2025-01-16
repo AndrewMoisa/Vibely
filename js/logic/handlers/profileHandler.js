@@ -18,9 +18,6 @@ export async function profileHandler() {
 
     const profilePosts = await fetchProfilePosts();
     renderProfilePosts(profilePosts.data, mainContainer);
-
-    console.log(profileDetails);
-    console.log(profilePosts);
   } catch (error) {
     displayMessage(
       console.log(error),
