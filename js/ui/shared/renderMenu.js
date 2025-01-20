@@ -9,7 +9,7 @@ export function renderMenu() {
   // Create the ul element
   const ul = document.createElement("ul");
   ul.className =
-    "flex justify-between mx-5 py-4 xl:flex-col xl:gap-16 overflow-visible";
+    "flex justify-between mx-5 py-1 xl:flex-col xl:gap-16 items-center ";
 
   // Create the list items with links and images
   const navItems = [

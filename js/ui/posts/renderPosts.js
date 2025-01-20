@@ -1,12 +1,13 @@
 export function renderPosts(container, posts) {
   posts.forEach((post) => {
+    console.log(post);
     container.innerHTML += `
       <section class="lg:grid lg:grid-cols-1 gap-5">
         <div class="mb-3">
           <div>
             <img
               class="object-cover rounded-sm w-full max-h-96"
-              src="/images/avatar1.jpg"
+              src="${post.media.url}"
               alt="User avatar"
             />
           </div>
@@ -29,10 +30,7 @@ export function renderPosts(container, posts) {
           </div>
           <div>
             <p class="text-sm p-2 md:text-xl">
-              <b>Username</b> Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Optio provident aut deserunt voluptates esse placeat libero
-              exercitationem facere nisi nesciunt, ratione, veniam minima
-              labore! Soluta consectetur officia quod voluptas mollitia.
+              <b>${post.author.name}</b> ${post.body}
             </p>
           </div>
           <div class="px-2">

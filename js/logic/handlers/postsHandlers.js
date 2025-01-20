@@ -2,9 +2,9 @@ import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { loadingContainer } from "../../constants/constants.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 import { fetchPosts } from "../api/posts.js";
-import { formatDate } from "../../ui/shared/formatDate.js";
 import { renderPosts } from "../../ui/posts/renderPosts.js";
 import { renderSearchFilter } from "../../ui/posts/renderSearchFilter.js";
+import { monitorScrollForMoreContent } from "../utils/loadMoreContent.js";
 
 export async function postsHandler() {
   try {
@@ -20,7 +20,8 @@ export async function postsHandler() {
     console.log(posts);
 
     renderSearchFilter(mainContainer);
-    renderPosts(mainContainer);
+    renderPosts(mainContainer, posts);
+    monitorScrollForMoreContent(mainContainer);
   } catch (error) {
     console.log(error);
     displayMessage(
