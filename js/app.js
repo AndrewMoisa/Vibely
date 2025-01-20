@@ -6,6 +6,7 @@ import { renderHeader } from "./ui/shared/renderHeader.js";
 import { createPostHandler } from "./logic/handlers/createPostHandler.js";
 import { postHandler } from "./logic/handlers/postHandler.js";
 import { editPostHandler } from "./logic/handlers/editPostHandler.js";
+import { postsHandler } from "./logic/handlers/postsHandlers.js";
 
 function router() {
   const pathname = window.location.pathname;
@@ -49,6 +50,14 @@ function router() {
       document.addEventListener("DOMContentLoaded", renderHeader);
       document.addEventListener("DOMContentLoaded", renderMenu);
       document.addEventListener("DOMContentLoaded", editPostHandler);
+
+      break;
+
+    case "/feed/index.html":
+    case "/feed/":
+      document.addEventListener("DOMContentLoaded", renderHeader);
+      document.addEventListener("DOMContentLoaded", renderMenu);
+      document.addEventListener("DOMContentLoaded", postsHandler);
 
       break;
   }
