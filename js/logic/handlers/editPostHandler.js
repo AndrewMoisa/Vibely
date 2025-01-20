@@ -56,8 +56,11 @@ async function submitForm(event) {
       "Post edited successful",
       types.success.icon
     );
-
     form.reset();
+
+    setTimeout(() => {
+      location.href = `/post/?id=${id}`;
+    }, 2000);
   } catch (error) {
     displayMessage(
       containerMsg,
