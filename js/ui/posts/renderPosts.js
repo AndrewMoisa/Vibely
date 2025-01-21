@@ -1,13 +1,16 @@
 export function renderPosts(container, posts) {
   posts.forEach((post) => {
-    console.log(post);
+    const imageUrl = post.media?.url ?? "../../../images/no-image.png";
+    const bio = post.body ?? "No bio available";
+
+    // console.log(post);
     container.innerHTML += `
       <section class="lg:grid lg:grid-cols-1 gap-5">
         <div class="mb-3">
           <div>
             <img
               class="object-cover rounded-sm w-full max-h-96"
-              src="${post.media.url}"
+              src="${imageUrl}"
               alt="User avatar"
             />
           </div>
@@ -30,12 +33,13 @@ export function renderPosts(container, posts) {
           </div>
           <div>
             <p class="text-sm p-2 md:text-xl">
-              <b>${post.author.name}</b> ${post.body}
+              <b>${post.author.name}</b> ${bio}
             </p>
           </div>
           <div class="px-2">
             <input
               class="text-xs p-1 w-full md:placeholder:text-xl md:text-base lg:p-3 lg:text-xl"
+              name="comment"
               type="text"
               placeholder="Add a comment"
             />

@@ -4,7 +4,8 @@ import { types } from "../../ui/shared/errorsStyles.js";
 import { fetchPosts } from "../api/posts.js";
 import { renderPosts } from "../../ui/posts/renderPosts.js";
 import { renderSearchFilter } from "../../ui/posts/renderSearchFilter.js";
-import { monitorScrollForMoreContent } from "../utils/loadMoreContent.js";
+import { getItemsInChunks } from "../utils/getItemsInChunks.js";
+import { createChunkManager } from "../utils/createChunkManager.js";
 
 export async function postsHandler() {
   try {
@@ -17,11 +18,16 @@ export async function postsHandler() {
     const multiplePosts = await fetchPosts();
     const posts = multiplePosts.data;
 
-    console.log(posts);
-
     renderSearchFilter(mainContainer);
-    renderPosts(mainContainer, posts);
-    monitorScrollForMoreContent(mainContainer);
+    createChunkManager(posts, mainContainer, renderPosts);
+
+    // chunks.forEach((chunk, index) => {
+    //   createChunkManager(chunks, mainContainer, renderPosts);
+    // });
+
+    // Process each chunk
+
+    console.log(posts);
   } catch (error) {
     console.log(error);
     displayMessage(
