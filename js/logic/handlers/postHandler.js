@@ -5,7 +5,7 @@ import { singlePost } from "../api/post.js";
 import { getQueryParam } from "../../logic/shared/getQueryParam.js";
 import { renderPost } from "../../ui/post/renderPost.js";
 import { getUsername } from "../../logic/utils/storage.js";
-import { formatDate } from "../../ui/shared/formatDate.js";
+import { formatDate } from "../utils/formatDate.js";
 import { deleteButton } from "../utils/deleteButton.js";
 
 export async function postHandler() {

@@ -31,9 +31,9 @@ export function renderSearchFilter(container) {
         <div class="mx-3">
           <label class="text-sm md:text-xl" for="filter">Filter by:</label>
           <select class="text-sm md:text-xl" id="filter" name="filter">
-            <option value="popular">Popular</option>
-            <option value="recent">Recent</option>
-            <option value="trending">Trending</option>
+            <option value="default" id="default">Select</option>
+            <option value="recent" id="recent">Recent</option>
+            <option value="oldest" id="oldest">Oldest</option>
           </select>
         </div>
       </section>`;
