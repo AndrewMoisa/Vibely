@@ -1,4 +1,4 @@
-export function scrollForMoreContent(nextChunk) {
+export function scrollForMoreContent(chunk) {
   let throttleTimer;
 
   const throttle = (callback, time) => {
@@ -18,13 +18,9 @@ export function scrollForMoreContent(nextChunk) {
         window.innerHeight + window.scrollY >= document.body.offsetHeight - 100; // 100px buffer
 
       if (endOfPage) {
-        nextChunk();
+        chunk();
       }
     }, 1000);
-  };
-
-  const removeInfiniteScroll = () => {
-    window.removeEventListener("scroll", handleInfiniteScroll);
   };
 
   window.addEventListener("scroll", handleInfiniteScroll);

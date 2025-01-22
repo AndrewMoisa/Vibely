@@ -1,6 +1,7 @@
+import { renderPosts } from "../../ui/posts/renderPosts.js";
 import { getItemsInChunks } from "./getItemsInChunks.js";
 
-export function createChunkManager(posts, mainContainer, renderPosts) {
+export function createChunkManager(posts, container) {
   const chunkSize = 10;
   const chunks = getItemsInChunks(posts, chunkSize);
 
@@ -12,16 +13,18 @@ export function createChunkManager(posts, mainContainer, renderPosts) {
     if (newIndex >= 0 && newIndex < chunks.length) {
       currentIndex = newIndex;
       currentChunk = chunks[currentIndex];
-      renderPosts(mainContainer, currentChunk);
+      renderPosts(container, currentChunk); // renderPosts when the chunk is updated, and scrollForMoreContent it's called.
     } else {
       // fix later, i need a container at the end of the page for no more posts
     }
   }
 
-  // Function to go to the next chunk
+  // Function to go to the next chunk called by scrollForMoreContent
   const nextChunk = () => {
     updateChunk(currentIndex + 1);
   };
+
+  console.log(currentChunk);
 
   // Expose nextChunk function
   return {
