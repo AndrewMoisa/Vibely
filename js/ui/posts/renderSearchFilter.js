@@ -11,16 +11,18 @@ export function renderSearchFilter(container) {
 
   // Create the search input
   const searchInput = document.createElement("input");
-  searchInput.type = "email";
+  searchInput.type = "text";
   searchInput.placeholder = "Search Something...";
   searchInput.className =
     "w-full outline-none bg-white text-gray-600 text-sm p-1 placeholder:text-xs md:placeholder:text-sm md:p-2 lg:p-3 lg:placeholder:text-base";
+  searchInput.id = "searchInput";
 
   // Create the search button
   const searchButton = document.createElement("button");
   searchButton.type = "button";
   searchButton.className =
     "flex items-center justify-center bg-blue-500 px-5 hover:bg-blue-600";
+  searchButton.id = "searchButton";
 
   // Create the search icon SVG
   const searchIcon = document.createElementNS(

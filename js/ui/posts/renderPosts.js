@@ -2,7 +2,7 @@ export function renderPosts(container, posts) {
   posts.forEach((post) => {
     const imageUrl = post.media?.url ?? "../../../images/no-image.png";
     const bio = post.body ?? "No bio available";
-
+    const author = post.name ?? post.author.name ?? "No author available";
     // Create the main section element
     const section = document.createElement("section");
     section.className = "lg:grid lg:grid-cols-1 gap-5";
@@ -46,7 +46,7 @@ export function renderPosts(container, posts) {
     const bioContainer = document.createElement("div");
     const bioText = document.createElement("p");
     bioText.className = "text-sm p-2 md:text-xl";
-    bioText.innerHTML = `<b>${post.author.name}</b> ${bio}`;
+    bioText.innerHTML = `<b>${author}</b> ${bio}`;
     bioContainer.appendChild(bioText);
 
     // Create the comment input container

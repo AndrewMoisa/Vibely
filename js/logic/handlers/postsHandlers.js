@@ -4,9 +4,10 @@ import { types } from "../../ui/shared/errorsStyles.js";
 import { fetchPosts } from "../api/posts.js";
 import { renderPosts } from "../../ui/posts/renderPosts.js";
 import { renderSearchFilter } from "../../ui/posts/renderSearchFilter.js";
-import { createChunkManager } from "../utils/createChunkManager.js";
-import { scrollForMoreContent } from "../utils/scrollForMoreContent.js";
 import { filterHandler } from "./filterHandler.js";
+import { renderChunk } from "../../ui/posts/renderChunk.js";
+
+import { searchHandler } from "./searchHandler.js";
 
 export async function postsHandler() {
   try {
@@ -18,21 +19,25 @@ export async function postsHandler() {
     loadingContainer.innerHTML = "";
 
     // Fetch posts
-    const multiplePosts = await fetchPosts();
-    const posts = multiplePosts.data;
+    const { data: posts } = await fetchPosts();
 
-    // Initial rendering
-    renderSearchFilter(mainContainer);
-    const chunksWithPosts = createChunkManager(
+    let currentScrollListener = null; // Track the current scroll listener
+
+    // Render posts
+    currentScrollListener = renderChunk(
       posts,
       feedContainer,
-      renderPosts
+      currentScrollListener
     );
-    renderPosts(feedContainer, chunksWithPosts.currentChunk);
-    scrollForMoreContent(chunksWithPosts.nextChunk);
+
+    // Render Search Filter
+    renderSearchFilter(mainContainer);
 
     // Filter handling
-    filterHandler(chunksWithPosts, posts, feedContainer);
+    filterHandler(posts, feedContainer, currentScrollListener);
+
+    // handle Search
+    searchHandler(feedContainer, currentScrollListener);
   } catch (error) {
     console.log(error);
     displayMessage(

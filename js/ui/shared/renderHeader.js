@@ -18,7 +18,7 @@ export function renderHeader() {
   // Create the first div (logo container)
   const logoContainer = document.createElement("div");
   const logoLink = document.createElement("a");
-  logoLink.href = "/feed/index.html";
+  logoLink.href = "/feed/";
   const logoImage = document.createElement("img");
   logoImage.classList.add("w-20", "md:w-28", "lg:w-32", "xl:w-34");
   logoImage.src = "/images/logo.svg";

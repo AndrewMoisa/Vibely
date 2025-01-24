@@ -19,12 +19,12 @@ export async function postHandler() {
     const loadingContainer = document.querySelector("#loadingContainer");
     loadingContainer.innerHTML = "";
 
-    const post = await singlePost(id);
-    const postDate = formatDate(post.data.created);
-    const author = post.data.author.name;
+    const { data: data } = await singlePost(id);
+    const postDate = formatDate(data.created);
+    const author = data.author.name;
 
-    renderPost(mainContainer, user, post.data, postDate);
-    deleteButton(post.data.id, user, author);
+    renderPost(mainContainer, user, data, postDate);
+    deleteButton(data.id, user, author);
 
     const editButton = document.querySelector("#editButton");
     if (user !== author) {
