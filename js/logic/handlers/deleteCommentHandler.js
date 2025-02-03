@@ -8,8 +8,15 @@ export async function deleteCommentHandler(button) {
   if (deleteButton) {
     deleteButton.addEventListener("click", async (event) => {
       console.log("delete button clicked");
-      window.confirm("Are you sure you want to delete this comment?");
-      const response = await deleteComment(postId, btnId);
+      const userConfirmed = window.confirm(
+        "Are you sure you want to delete this comment?"
+      );
+
+      if (!userConfirmed) {
+        return;
+      }
+
+      await deleteComment(postId, btnId);
       const commentElement = event.target.parentElement;
       if (commentElement) {
         commentElement.remove();

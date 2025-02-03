@@ -59,7 +59,7 @@ export function renderProfile(data, container) {
   // Create the follow button
   const followButton = document.createElement("a");
   followButton.className =
-    "flex justify-center text-sm bg-blue-500 text-white rounded-sm p-1 mx-2 my-3 md:text-base lg:text-lg xl:text-xl hover:bg-blue-600 cursor-pointer font-bold";
+    "flex justify-center text-sm bg-blue-500 text-white rounded-xs p-1 mx-2 my-3 md:text-base lg:text-lg xl:text-xl hover:bg-blue-600 cursor-pointer font-bold";
   followButton.textContent = "Follow";
 
   // Append name, bio, and follow button to the second div

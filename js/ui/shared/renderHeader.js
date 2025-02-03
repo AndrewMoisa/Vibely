@@ -4,15 +4,16 @@ export function renderHeader() {
   const container = document.querySelector("header");
 
   // Create the header element
-  const header = document.createElement("header");
+  const header = document.createElement("section");
   header.classList.add(
     "flex",
     "justify-between",
+    "items-center",
     "mt-3",
     "mx-3",
     "mb-1",
     "md:mx-20",
-    "xl:mx-72"
+    "lg:mx-32"
   );
 
   // Create the first div (logo container)
@@ -20,7 +21,7 @@ export function renderHeader() {
   const logoLink = document.createElement("a");
   logoLink.href = "/feed/";
   const logoImage = document.createElement("img");
-  logoImage.classList.add("w-20", "md:w-28", "lg:w-32", "xl:w-34");
+  logoImage.classList.add("w-20", "md:w-24", "lg:w-28", "xl:w-34");
   logoImage.src = "/images/logo.svg";
   logoImage.alt = "Vibely logo";
   logoLink.appendChild(logoImage);

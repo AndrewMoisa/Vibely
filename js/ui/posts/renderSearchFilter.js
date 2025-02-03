@@ -14,7 +14,7 @@ export function renderSearchFilter(container) {
   searchInput.type = "text";
   searchInput.placeholder = "Search Something...";
   searchInput.className =
-    "w-full outline-none bg-white text-gray-600 text-sm p-1 placeholder:text-xs md:placeholder:text-sm md:p-2 lg:p-3 lg:placeholder:text-base";
+    "w-full outline-hidden bg-white text-gray-600 text-sm p-1 placeholder:text-xs md:placeholder:text-md md:p-1 lg:p-2 lg:placeholder:text-base";
   searchInput.id = "searchInput";
 
   // Create the search button
@@ -59,13 +59,13 @@ export function renderSearchFilter(container) {
 
   // Create the filter label
   const filterLabel = document.createElement("label");
-  filterLabel.className = "text-sm md:text-xl";
+  filterLabel.className = "text-sm md:text-md text-gray-500 lg:text-base";
   filterLabel.textContent = "Filter by:";
   filterLabel.setAttribute("for", "filter");
 
   // Create the filter select dropdown
   const filterSelect = document.createElement("select");
-  filterSelect.className = "text-sm md:text-xl";
+  filterSelect.className = "text-sm md:text-md lg:text-base";
   filterSelect.id = "filter";
   filterSelect.name = "filter";
 

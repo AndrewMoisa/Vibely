@@ -27,15 +27,6 @@ export async function submitForm(event) {
     const { data: commentData } = await createComment(buttonId, data);
     renderInstantComment(commentData, event.target);
     form.reset();
-
-    // Optional: Display a success message
-    const containerMsg = document.querySelector("#messageContainer");
-    displayMessage(
-      containerMsg,
-      types.success.classes,
-      "Comment posted successfully!",
-      types.success.icon
-    );
   } catch (error) {
     // Handle errors and display a message to the user
     const containerMsg = document.querySelector("#messageContainer");

@@ -33,7 +33,7 @@ export function renderInstantComment(comment, form) {
   const commentElement = document.createElement("div");
   commentElement.id = "comment";
 
-  commentElement.className = "text-xs md:text-md";
+  commentElement.className = "text-xs md:text-md px-2";
   commentElement.innerHTML = `<b>${comment.owner}:</b> ${comment.body}`;
 
   commentsContainer.appendChild(commentElement);

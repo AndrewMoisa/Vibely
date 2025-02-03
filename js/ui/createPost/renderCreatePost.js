@@ -58,7 +58,7 @@ export function renderCreatePost(action) {
     "border",
     "border-gray-300",
     "rounded-md",
-    "shadow-sm",
+    "shadow-xs",
     "focus:ring-blue-500",
     "focus:border-blue-500",
     "sm:text-sm"
@@ -91,7 +91,7 @@ export function renderCreatePost(action) {
     "border",
     "border-gray-300",
     "rounded-md",
-    "shadow-sm",
+    "shadow-xs",
     "focus:ring-blue-500",
     "focus:border-blue-500",
     "sm:text-sm"
@@ -133,7 +133,7 @@ export function renderCreatePost(action) {
     "border",
     "border-gray-300",
     "rounded-md",
-    "shadow-sm",
+    "shadow-xs",
     "focus:ring-blue-500",
     "focus:border-blue-500",
     "sm:text-sm"
@@ -165,7 +165,7 @@ export function renderCreatePost(action) {
     "border",
     "border-gray-300",
     "rounded-md",
-    "shadow-sm",
+    "shadow-xs",
     "focus:ring-blue-500",
     "focus:border-blue-500",
     "sm:text-sm"
@@ -190,9 +190,9 @@ export function renderCreatePost(action) {
     "bg-blue-600",
     "text-white",
     "rounded-md",
-    "shadow-sm",
+    "shadow-xs",
     "hover:bg-blue-700",
-    "focus:outline-none",
+    "focus:outline-hidden",
     "focus:ring-2",
     "focus:ring-offset-2",
     "focus:ring-blue-500",

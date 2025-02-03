@@ -9,7 +9,7 @@ export function renderMenu() {
   // Create the ul element
   const ul = document.createElement("ul");
   ul.className =
-    "flex justify-between mx-5 py-1 xl:flex-col xl:gap-16 items-center ";
+    "flex justify-between mx-5 py-1 lg:mx-5  xl:flex-col xl:gap-14 items-center ";
 
   // Create the list items with links and images
   const navItems = [
@@ -52,7 +52,7 @@ export function renderMenu() {
 
     // Check if the link's href matches the current page's URL
     if (item.href === currentPageUrl) {
-      a.classList.add("border-b-4", "border-blue-500", "pb-1", "rounded-sm");
+      li.classList.add("border-b-4", "border-blue-500", "pb-1", "rounded-xs");
     }
 
     if (item.text === "Profile") {

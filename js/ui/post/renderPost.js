@@ -29,7 +29,7 @@ export function renderPost(container, user, post, postDate) {
   // Create the post image div
   const imageDiv = document.createElement("div");
   const image = document.createElement("img");
-  image.className = "object-cover rounded-sm w-full max-h-96";
+  image.className = "object-cover rounded-xs w-full max-h-96";
   image.src = post.media?.url ? post.media.url : "/images/noimg.png";
   image.alt = "User avatar";
   imageDiv.appendChild(image);
@@ -114,7 +114,7 @@ export function renderPost(container, user, post, postDate) {
 
   const editButton = document.createElement("button");
   editButton.className =
-    "bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700";
+    "bg-blue-500 text-white px-3 py-1 rounded-sm hover:bg-blue-700";
   editButton.textContent = "Edit";
   editButton.id = "editButton";
   editButton.addEventListener("click", () => {
@@ -123,7 +123,7 @@ export function renderPost(container, user, post, postDate) {
 
   const deleteButton = document.createElement("button");
   deleteButton.className =
-    "bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700";
+    "bg-red-500 text-white px-3 py-1 rounded-sm hover:bg-red-700";
   deleteButton.textContent = "Delete";
   deleteButton.id = "deleteButton";
 

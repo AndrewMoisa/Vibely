@@ -48,7 +48,7 @@ export function renderRegisterForm() {
     "bg-gray-100",
     "border",
     "border-gray-400",
-    "rounded-sm",
+    "rounded-xs",
     "p-2",
     "w-80",
     "placeholder:text-xs"
@@ -72,7 +72,7 @@ export function renderRegisterForm() {
     "bg-gray-100",
     "border",
     "border-gray-400",
-    "rounded-sm",
+    "rounded-xs",
     "p-2",
     "w-80",
     "placeholder:text-xs"
@@ -98,7 +98,7 @@ export function renderRegisterForm() {
     "bg-gray-100",
     "border",
     "border-gray-400",
-    "rounded-sm",
+    "rounded-xs",
     "p-2",
     "w-80",
     "placeholder:text-xs"
@@ -122,7 +122,7 @@ export function renderRegisterForm() {
     "bg-gray-100",
     "border",
     "border-gray-400",
-    "rounded-sm",
+    "rounded-xs",
     "p-2",
     "w-80",
     "placeholder:text-xs"
@@ -144,7 +144,7 @@ export function renderRegisterForm() {
     "bg-gray-100",
     "border",
     "border-gray-400",
-    "rounded-sm",
+    "rounded-xs",
     "p-2",
     "w-80",
     "placeholder:text-xs"
