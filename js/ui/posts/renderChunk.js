@@ -16,7 +16,6 @@ export function renderChunk(posts, feedContainer, currentScrollListener) {
       // Stop rendering if there are no more posts
       if (currentScrollListener) {
         window.removeEventListener("scroll", currentScrollListener);
-        console.log("Scroll listener removed");
       }
 
       const div = document.createElement("div");

@@ -2,12 +2,11 @@ import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { loadingContainer } from "../../constants/constants.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 import { fetchPosts } from "../api/posts.js";
-import { renderPosts } from "../../ui/posts/renderPosts.js";
 import { renderSearchFilter } from "../../ui/posts/renderSearchFilter.js";
 import { filterHandler } from "./filterHandler.js";
 import { renderChunk } from "../../ui/posts/renderChunk.js";
-
 import { searchHandler } from "./searchHandler.js";
+import { createCommentHandler } from "./createCommentsHandler.js";
 
 export async function postsHandler() {
   try {
@@ -38,6 +37,8 @@ export async function postsHandler() {
 
     // handle Search
     searchHandler(feedContainer, currentScrollListener);
+
+    createCommentHandler();
   } catch (error) {
     console.log(error);
     displayMessage(

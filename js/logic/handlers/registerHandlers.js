@@ -2,8 +2,12 @@ import { registerUser } from "../api/register.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 import { renderLoginMessage } from "../../ui/register/renderLoginMessage.js";
+import { renderRegisterForm } from "../../ui/register/renderRegisterForm.js";
 
 export function registerHandler() {
+  // render the form
+  renderRegisterForm();
+
   const form = document.querySelector("#registerForm");
 
   if (form) {

@@ -1,7 +1,7 @@
 import { apiKey } from "../../constants/constants.js";
 import { getToken } from "./storage.js";
 
-export function createFetchOptions(method = "GET", user) {
+export function createFetchOptions(method = "GET", data) {
   const token = getToken();
 
   if (!token) {
@@ -16,6 +16,6 @@ export function createFetchOptions(method = "GET", user) {
       Authorization: `Bearer ${token}`,
       "X-Noroff-API-Key": apiKey,
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(data),
   };
 }

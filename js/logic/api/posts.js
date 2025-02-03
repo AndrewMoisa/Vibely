@@ -4,7 +4,7 @@ import { createFetchOptions } from "../../logic/utils/createFetchOptions.js";
 export async function fetchPosts() {
   const options = createFetchOptions("GET");
 
-  const url = `${postsUrl}/?_author=true`;
+  const url = `${postsUrl}/?_author=true&_comments=true&_reactions=true`;
 
   const response = await fetch(url, options);
   const json = await response.json();

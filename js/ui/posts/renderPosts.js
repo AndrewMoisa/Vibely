@@ -1,23 +1,24 @@
+import { submitForm } from "../../logic/handlers/createCommentsHandler.js";
+import { renderComment } from "./renderComment.js";
+
 export function renderPosts(container, posts) {
   posts.forEach((post) => {
     const imageUrl = post.media?.url ?? "../../../images/no-image.png";
     const bio = post.body ?? "No bio available";
     const author = post.name ?? post.author.name ?? "No author available";
+    const hashTags = post.tags?.map((tag) => `#${tag}`).join(" ") ?? "";
+
     // Create the main section element
     const section = document.createElement("section");
-    section.className = "lg:grid lg:grid-cols-1 gap-5";
+    section.className = "mb-3 mx-2 lg:grid lg:grid-cols-1 gap-5 ";
 
-    // Create the post container
-    const postContainer = document.createElement("div");
-    postContainer.className = "mb-3";
+    section.id = "postContainer";
 
     // Create the image container
-    const imageContainer = document.createElement("div");
     const image = document.createElement("img");
     image.className = "object-cover rounded-sm w-full max-h-96";
     image.src = imageUrl;
     image.alt = "User avatar";
-    imageContainer.appendChild(image);
 
     // Create the action icons container
     const actionsContainer = document.createElement("div");
@@ -45,35 +46,68 @@ export function renderPosts(container, posts) {
     // Create the bio container
     const bioContainer = document.createElement("div");
     const bioText = document.createElement("p");
-    bioText.className = "text-sm p-2 md:text-xl";
+    bioText.className = "text-sm px-2 md:text-xl";
     bioText.innerHTML = `<b>${author}</b> ${bio}`;
     bioContainer.appendChild(bioText);
 
+    // Create a hash tag container
+    const hashTagContainer = document.createElement("div");
+    hashTagContainer.className = "px-2";
+    const hashTag = document.createElement("span");
+    hashTag.className = "text-xs text-gray-500 md:text-base";
+    hashTag.innerHTML = `${hashTags}`;
+    hashTagContainer.appendChild(hashTag);
+    bioContainer.appendChild(hashTagContainer);
+
+    // Create the comments
+    renderComment(post, bioContainer);
+
     // Create the comment input container
-    const commentContainer = document.createElement("div");
-    commentContainer.className = "px-2";
+    const commentContainer = document.createElement("form");
+    commentContainer.className =
+      "flex mx-auto border-2  mx-1 rounded-lg w-96 my-2";
+
     const commentInput = document.createElement("input");
+    commentInput.id = "comment";
     commentInput.className =
-      "text-xs p-1 w-full md:placeholder:text-xl md:text-base lg:p-3 lg:text-xl";
-    commentInput.name = "comment";
+      "text-xs w-full p-1 md:placeholder:text-xl md:text-base lg:p-3 lg:text-xl focus:outline-none";
+    commentInput.name = "body";
     commentInput.type = "text";
     commentInput.placeholder = "Add a comment";
+
+    commentInput.autocomplete = "off";
+
+    const label = document.createElement("label");
+    label.htmlFor = "comment";
+    label.className = "hidden ";
+    label.innerText = "Add a comment";
+
+    // Create the send button
+    const sendButton = document.createElement("button");
+    sendButton.id = post.id;
+    sendButton.type = "submit";
+    sendButton.className =
+      "bg-blue-500 text-white text-xs md:text-base px-3 py-1 rounded-lg hover:bg-blue-600 transition-all";
+    sendButton.innerText = "Send";
+    commentContainer.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      await submitForm(event);
+    });
+    // Append elements to the container
     commentContainer.appendChild(commentInput);
+    commentContainer.appendChild(sendButton);
 
     // Create the horizontal rule
     const hr = document.createElement("hr");
 
     // Append all elements to the post container
-    postContainer.appendChild(imageContainer);
-    postContainer.appendChild(actionsContainer);
-    postContainer.appendChild(bioContainer);
-    postContainer.appendChild(commentContainer);
-    postContainer.appendChild(hr);
+    section.appendChild(image);
+    section.appendChild(actionsContainer);
+    section.appendChild(bioContainer);
+    section.appendChild(commentContainer);
 
-    // Append the post container to the section
-    section.appendChild(postContainer);
+    section.appendChild(hr);
 
-    // Append the section to the main container
     container.appendChild(section);
   });
 }

@@ -60,7 +60,7 @@ async function submitForm(event) {
 
     setTimeout(() => {
       location.href = `/post/?id=${id}`;
-    }, 2000);
+    }, 1000);
   } catch (error) {
     displayMessage(
       containerMsg,

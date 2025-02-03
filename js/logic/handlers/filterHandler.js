@@ -13,7 +13,6 @@ export function filterHandler(posts, feedContainer, currentScrollListener) {
     // Clean up the previous scroll listener
     if (currentScrollListener) {
       window.removeEventListener("scroll", currentScrollListener);
-      console.log("Old scroll listener removed");
     }
 
     // Determine which posts to display based on the selected filter

@@ -34,12 +34,16 @@ export function searchHandler(feedContainer, currentScrollListener) {
     currentScrollListener = renderChunk(searchPosts, feedContainer);
   };
 
-  searchButton.addEventListener("click", handleSearch);
-  searchInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
-  });
+  if (searchButton && searchInput) {
+    searchButton.addEventListener("click", handleSearch);
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        handleSearch();
+      }
+    });
+  } else {
+    console.error("Search button or input not found in the DOM");
+  }
 
   async function getPosts(query) {
     const inputQuery = await fetchSearchPosts(query);

@@ -20,44 +20,45 @@ function router() {
     case "/register/index.html":
     case "/register/":
       registerHandler();
+
       break;
 
     case "/profile/index.html":
     case "/profile/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", profileHandler);
-      document.addEventListener("DOMContentLoaded", renderMenu);
+      renderHeader();
+      profileHandler();
+      renderMenu();
 
       break;
 
     case "/posts/index.html":
     case "/posts/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
-      document.addEventListener("DOMContentLoaded", createPostHandler);
+      renderHeader();
+      renderMenu();
+      createPostHandler();
       break;
 
     case "/post/index.html":
     case "/post/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
-      document.addEventListener("DOMContentLoaded", postHandler);
+      renderHeader();
+      renderMenu();
+      postHandler();
 
       break;
 
     case "/edit/index.html":
     case "/edit/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
-      document.addEventListener("DOMContentLoaded", editPostHandler);
+      renderHeader();
+      renderMenu();
+      editPostHandler();
 
       break;
 
     case "/feed/index.html":
     case "/feed/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
-      document.addEventListener("DOMContentLoaded", postsHandler);
+      renderHeader();
+      renderMenu();
+      postsHandler();
 
       break;
   }
