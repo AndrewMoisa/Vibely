@@ -1,5 +1,7 @@
 import { submitForm } from "../../logic/handlers/createCommentsHandler.js";
 import { renderComment } from "./renderComment.js";
+import { formatDate } from "../../logic/utils/formatDate.js";
+import { reactToPost } from "../../logic/api/reactToPost.js";
 
 export function renderPosts(container, posts) {
   posts.forEach((post) => {
@@ -23,10 +25,10 @@ export function renderPosts(container, posts) {
 
     // Create the action icons container
     const actionsContainer = document.createElement("div");
-    actionsContainer.className = "flex gap-2 p-2 border-b-1 border-gray-200";
+    actionsContainer.className = "flex gap-2 px-2 pt-2 ";
 
     const heartIcon = document.createElement("img");
-    heartIcon.className = "w-3 h-4 md:w-6 md:h-6";
+    heartIcon.className = "w-5 h-5 md:w-6 md:h-6";
     heartIcon.src = "/images/fi-rr-heart.png";
     heartIcon.alt = "heart icon";
 
@@ -40,9 +42,33 @@ export function renderPosts(container, posts) {
     sendIcon.src = "/images/fi-rr-paper-plane.png";
     sendIcon.alt = "send icon";
 
+    // Create the heart count container
+
+    const heartCount = document.createElement("span");
+    heartCount.className = "text-xs text-gray-500 px-2";
+    heartCount.innerHTML = `${post._count.reactions} likes`;
+
     actionsContainer.appendChild(heartIcon);
     actionsContainer.appendChild(commentIcon);
     actionsContainer.appendChild(sendIcon);
+
+    // Create event listeners for the icons
+    heartIcon.addEventListener("click", async () => {
+      console.log("Heart icon clicked");
+      console.log(post.id);
+      const response = await reactToPost(post.id);
+      console.log(response);
+    });
+
+    commentIcon.addEventListener("click", () => {
+      commentInput.focus();
+    });
+
+    // Create date container
+    const dateContainer = document.createElement("div");
+    dateContainer.className =
+      "text-[10px] text-gray-500 px-2 border-b-1 border-gray-200";
+    dateContainer.innerHTML = `Posted on ${formatDate(post.created)}`;
 
     // Create the bio container
     const bioContainer = document.createElement("div");
@@ -66,7 +92,7 @@ export function renderPosts(container, posts) {
     // Create the comment input container
     const commentContainer = document.createElement("form");
     commentContainer.className =
-      "flex mx-auto border-1  mx-1 rounded-lg w-full my-2";
+      "flex mx-auto border-1 mx-1 rounded-lg w-full my-2";
 
     const commentInput = document.createElement("input");
     commentInput.id = "comment";
@@ -102,6 +128,8 @@ export function renderPosts(container, posts) {
     // Append all elements to the post container
     section.appendChild(image);
     section.appendChild(actionsContainer);
+    section.appendChild(heartCount);
+    section.appendChild(dateContainer);
     section.appendChild(bioContainer);
     section.appendChild(commentContainer);
 
