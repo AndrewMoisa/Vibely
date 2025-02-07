@@ -1,10 +1,8 @@
 import { fetchSearchPosts } from "../api/fetchSearchPosts.js";
-import { renderPosts } from "../../ui/posts/renderPosts.js";
-import { renderChunk } from "../../ui/posts/renderChunk.js";
-import {
-  sortPostsByNewestFirst,
-  sortPostsByOldestFirst,
-} from "..//utils/postsFilters.js";
+import { renderChunk } from "../../ui/multiplePosts/renderChunk.js";
+import { displayMessage } from "../../ui/shared/displayMessage.js";
+import { types } from "../../ui/shared/errorsStyles.js";
+types;
 
 export function searchHandler(feedContainer, currentScrollListener) {
   const searchButton = document.querySelector("#searchButton");
@@ -19,19 +17,28 @@ export function searchHandler(feedContainer, currentScrollListener) {
       return;
     }
 
-    const searchPosts = await getPosts(query);
-    console.log("Search Results:", searchPosts);
+    try {
+      const searchPosts = await getPosts(query);
+      console.log("Search Results:", searchPosts);
 
-    // Clear the container
-    feedContainer.innerHTML = "";
+      // Clear the container
+      feedContainer.innerHTML = "";
 
-    if (currentScrollListener) {
-      window.removeEventListener("scroll", currentScrollListener);
-      console.log("Old scroll listener removed");
+      if (currentScrollListener) {
+        window.removeEventListener("scroll", currentScrollListener);
+        console.log("Old scroll listener removed");
+      }
+
+      // Render the new posts
+      currentScrollListener = renderChunk(searchPosts, feedContainer);
+    } catch (error) {
+      displayMessage(
+        loadingContainer,
+        types.error.classes,
+        error.message,
+        types.error.icon
+      );
     }
-
-    // Render the new posts
-    currentScrollListener = renderChunk(searchPosts, feedContainer);
   };
 
   if (searchButton && searchInput) {
@@ -46,7 +53,12 @@ export function searchHandler(feedContainer, currentScrollListener) {
   }
 
   async function getPosts(query) {
-    const inputQuery = await fetchSearchPosts(query);
-    return inputQuery.data;
+    try {
+      const inputQuery = await fetchSearchPosts(query);
+      return inputQuery.data;
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      throw error;
+    }
   }
 }

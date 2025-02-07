@@ -44,6 +44,7 @@ async function submitForm(event) {
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");
   const id = getQueryParam("id");
+  const name = getQueryParam("name");
 
   try {
     fieldset.disabled = true;
@@ -59,7 +60,7 @@ async function submitForm(event) {
     form.reset();
 
     setTimeout(() => {
-      location.href = `/post/?id=${id}`;
+      location.href = `/post/?id=${id}&name=${name}`;
     }, 1000);
   } catch (error) {
     displayMessage(

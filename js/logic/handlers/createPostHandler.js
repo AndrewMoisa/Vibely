@@ -39,7 +39,6 @@ async function submitForm(event) {
     delete data.mediaAlt;
   }
 
-  console.log(data);
   const containerMsg = document.querySelector("#message");
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");

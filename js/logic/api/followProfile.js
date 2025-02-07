@@ -1,10 +1,10 @@
-import { postsUrl } from "../../constants/constants.js";
+import { profileUrl } from "../../constants/constants.js";
 import { createFetchOptions } from "../utils/createFetchOptions.js";
 
-export async function reactToPost(id) {
-  const url = `${postsUrl}/${id}/react/👍`;
+export async function isFollowingProfile(user, isFollowing) {
+  const url = `${profileUrl}${user}/${isFollowing}`;
 
-  const options = createFetchOptions("PUT", null, false);
+  const options = createFetchOptions("PUT", "", false);
 
   const response = await fetch(url, options);
   const json = await response.json();

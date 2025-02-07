@@ -1,4 +1,4 @@
-import { registerUser } from "../api/register.js";
+import { registerUser } from "../api/registerUser.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 import { renderLoginMessage } from "../../ui/register/renderLoginMessage.js";
@@ -29,8 +29,6 @@ async function submitForm(event) {
   const containerMsg = document.querySelector("#message");
   const fieldset = form.querySelector("fieldset");
   const button = form.querySelector("button");
-
-  console.log(types.success);
 
   try {
     fieldset.disabled = true;

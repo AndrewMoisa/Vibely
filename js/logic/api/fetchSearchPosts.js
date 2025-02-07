@@ -5,7 +5,7 @@ import { createFetchOptions } from "../../logic/utils/createFetchOptions.js";
 export async function fetchSearchPosts(query) {
   const options = createFetchOptions("GET");
 
-  const url = `${searchUrl}?q=${query}&_author=true`;
+  const url = `${searchUrl}?q=${query}&_author=true&_comments=true&_reactions=true`;
 
   const response = await fetch(url, options);
   const json = await response.json();

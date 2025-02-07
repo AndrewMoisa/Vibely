@@ -1,30 +1,35 @@
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { loadingContainer } from "../../constants/constants.js";
 import { types } from "../../ui/shared/errorsStyles.js";
-import { singlePost } from "../api/post.js";
+import { fetchSinglePost } from "../api/fetchSinglePost.js";
 import { getQueryParam } from "../../logic/shared/getQueryParam.js";
-import { renderPost } from "../../ui/post/renderPost.js";
 import { getUsername } from "../../logic/utils/storage.js";
-import { formatDate } from "../utils/formatDate.js";
-import { deleteButton } from "../utils/deleteButton.js";
+import { deleteButton } from "../../ui/singlePost/deleteButton.js";
+import { renderPosts } from "../../ui/multiplePosts/renderPosts.js";
+import { createCommentHandler } from "./createCommentsHandler.js";
+import { initialPost } from "../../ui/singlePost/initialPost.js";
 
 export async function postHandler() {
   try {
     const id = getQueryParam("id");
+    const name = getQueryParam("name");
     const user = getUsername();
 
-    const mainContainer = document.querySelector("main");
+    const mainContainer = document.querySelector("#feedContainer");
+    const section = document.createElement("section");
+    section.classList.add("singlePost");
 
     // Clear the container
     const loadingContainer = document.querySelector("#loadingContainer");
     loadingContainer.innerHTML = "";
 
-    const { data: data } = await singlePost(id);
-    const postDate = formatDate(data.created);
+    const { data: data } = await fetchSinglePost(id);
     const author = data.author.name;
 
-    renderPost(mainContainer, user, data, postDate);
-    deleteButton(data.id, user, author);
+    initialPost(mainContainer, name);
+    renderPosts(mainContainer, [data]);
+    createCommentHandler();
+    deleteButton(data.id, user, author, mainContainer);
 
     const editButton = document.querySelector("#editButton");
     if (user !== author) {

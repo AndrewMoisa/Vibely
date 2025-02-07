@@ -1,10 +1,10 @@
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { loadingContainer } from "../../constants/constants.js";
 import { types } from "../../ui/shared/errorsStyles.js";
-import { fetchPosts } from "../api/posts.js";
-import { renderSearchFilter } from "../../ui/posts/renderSearchFilter.js";
+import { fetchMultiplePosts } from "../api/fetchMultiplePosts.js";
+import { renderSearchFilter } from "../../ui/multiplePosts/renderSearchFilter.js";
 import { filterHandler } from "./filterHandler.js";
-import { renderChunk } from "../../ui/posts/renderChunk.js";
+import { renderChunk } from "../../ui/multiplePosts/renderChunk.js";
 import { searchHandler } from "./searchHandler.js";
 import { createCommentHandler } from "./createCommentsHandler.js";
 
@@ -18,7 +18,7 @@ export async function postsHandler() {
     loadingContainer.innerHTML = "";
 
     // Fetch posts
-    const { data: posts } = await fetchPosts();
+    const { data: posts } = await fetchMultiplePosts();
 
     let currentScrollListener = null; // Track the current scroll listener
 

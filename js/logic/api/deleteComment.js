@@ -9,7 +9,10 @@ export async function deleteComment(postId, commentId) {
   const response = await fetch(url, options);
 
   if (!response.ok) {
-    throw new Error(json.errors?.[0]?.message || "Something went wrong.");
+    const errorResponse = await response.json();
+    throw new Error(
+      errorResponse.errors?.[0]?.message || "Something went wrong."
+    );
   }
 
   return response;

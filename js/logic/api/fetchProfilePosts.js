@@ -1,10 +1,7 @@
 import { profileUrl } from "../../constants/constants.js";
 import { createFetchOptions } from "../utils/createFetchOptions.js";
-import { getUsername } from "../utils/storage.js";
 
-export async function fetchProfilePosts() {
-  const name = getUsername();
-
+export async function fetchProfilePosts(name) {
   if (!name) {
     throw new Error("No username in local storage");
   }

@@ -7,6 +7,7 @@ import { createPostHandler } from "./logic/handlers/createPostHandler.js";
 import { postHandler } from "./logic/handlers/postHandler.js";
 import { editPostHandler } from "./logic/handlers/editPostHandler.js";
 import { postsHandler } from "./logic/handlers/postsHandlers.js";
+import { followProfileHandler } from "./logic/handlers/followProfileHandler.js";
 
 function router() {
   const pathname = window.location.pathname;
@@ -28,7 +29,6 @@ function router() {
       renderHeader();
       profileHandler();
       renderMenu();
-
       break;
 
     case "/posts/index.html":

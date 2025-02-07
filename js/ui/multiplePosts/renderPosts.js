@@ -1,7 +1,11 @@
 import { submitForm } from "../../logic/handlers/createCommentsHandler.js";
 import { renderComment } from "./renderComment.js";
 import { formatDate } from "../../logic/utils/formatDate.js";
-import { reactToPost } from "../../logic/api/reactToPost.js";
+import {
+  getReactedUser,
+  reactToPostHandler,
+} from "../../logic/handlers/reactToPostHandler.js";
+import { getUsername } from "../../logic/utils/storage.js";
 
 export function renderPosts(container, posts) {
   posts.forEach((post) => {
@@ -9,6 +13,7 @@ export function renderPosts(container, posts) {
     const bio = post.body ?? "No bio available";
     const author = post.name ?? post.author.name ?? "No author available";
     const hashTags = post.tags?.map((tag) => `#${tag}`).join(" ") ?? "";
+    const username = getUsername();
 
     // Create the main section element
     const section = document.createElement("section");
@@ -28,17 +33,17 @@ export function renderPosts(container, posts) {
     actionsContainer.className = "flex gap-2 px-2 pt-2 ";
 
     const heartIcon = document.createElement("img");
-    heartIcon.className = "w-5 h-5 md:w-6 md:h-6";
+    heartIcon.className = "w-5 h-5 md:w-6 md:h-6 cursor-pointer";
     heartIcon.src = "/images/fi-rr-heart.png";
     heartIcon.alt = "heart icon";
 
     const commentIcon = document.createElement("img");
-    commentIcon.className = "w-5 h-5 md:w-6 md:h-6";
+    commentIcon.className = "w-5 h-5 md:w-6 md:h-6 cursor-pointer";
     commentIcon.src = "/images/comment.png";
     commentIcon.alt = "comment icon";
 
     const sendIcon = document.createElement("img");
-    sendIcon.className = "w-5 h-5 md:w-6 md:h-6";
+    sendIcon.className = "w-5 h-5 md:w-6 md:h-6 cursor-pointer";
     sendIcon.src = "/images/fi-rr-paper-plane.png";
     sendIcon.alt = "send icon";
 
@@ -46,7 +51,12 @@ export function renderPosts(container, posts) {
 
     const heartCount = document.createElement("span");
     heartCount.className = "text-xs text-gray-500 px-2";
-    heartCount.innerHTML = `${post._count.reactions} likes`;
+    heartCount.innerHTML = `${post._count.reactions}  likes`;
+
+    const react = getReactedUser(post);
+    if (react === username) {
+      heartIcon.src = "/images/heart-full.png";
+    }
 
     actionsContainer.appendChild(heartIcon);
     actionsContainer.appendChild(commentIcon);
@@ -54,10 +64,7 @@ export function renderPosts(container, posts) {
 
     // Create event listeners for the icons
     heartIcon.addEventListener("click", async () => {
-      console.log("Heart icon clicked");
-      console.log(post.id);
-      const response = await reactToPost(post.id);
-      console.log(response);
+      reactToPostHandler(post, heartCount, heartIcon, username);
     });
 
     commentIcon.addEventListener("click", () => {
@@ -74,7 +81,13 @@ export function renderPosts(container, posts) {
     const bioContainer = document.createElement("div");
     const bioText = document.createElement("p");
     bioText.className = "text-sm px-2 md:text-base";
-    bioText.innerHTML = `<b>${author}</b> ${bio}`;
+    bioText.innerHTML = `<a>${author}</a> ${bio}`;
+    const bioName = bioText.querySelector("a");
+    bioName.style.cursor = "pointer";
+    bioName.className = "font-bold hover:underline";
+    bioName.addEventListener("click", () => {
+      window.location.href = `/profile/?name=${post.author.name}`;
+    });
     bioContainer.appendChild(bioText);
 
     // Create a hash tag container
@@ -114,7 +127,7 @@ export function renderPosts(container, posts) {
     sendButton.id = post.id;
     sendButton.type = "submit";
     sendButton.className =
-      "bg-blue-500 text-white text-xs md:text-md px-3 py-1 rounded-lg hover:bg-blue-600 transition-all lg:text-base lg:px-4 ";
+      "bg-blue-500 text-white text-xs md:text-md px-3 py-1 rounded-lg hover:bg-blue-600 transition-all lg:text-base lg:px-4 cursor-pointer";
     sendButton.innerText = "Send";
     commentContainer.addEventListener("submit", async (event) => {
       event.preventDefault();

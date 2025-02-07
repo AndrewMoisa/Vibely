@@ -1,10 +1,11 @@
-import { renderInstantComment } from "../../ui/posts/renderComment.js";
+import { renderInstantComment } from "../../ui/multiplePosts/renderComment.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
 import { createComment } from "../api/createComment.js";
 
-export async function createCommentHandler() {
+export function createCommentHandler() {
   document.querySelector("#loadingContainer").innerHTML = "";
+  //Submit form called on RenderPosts.js/UI to submit a comment
 }
 
 export async function submitForm(event) {
@@ -28,8 +29,7 @@ export async function submitForm(event) {
     renderInstantComment(commentData, event.target);
     form.reset();
   } catch (error) {
-    // Handle errors and display a message to the user
-    const containerMsg = document.querySelector("#messageContainer");
+    const containerMsg = document.querySelector("#loadingContainer");
     displayMessage(
       containerMsg,
       types.error.classes,
@@ -37,8 +37,6 @@ export async function submitForm(event) {
       types.error.icon
     );
   } finally {
-    // Perform any cleanup or reset actions here
-    // Example: Re-enable a submit button if it was disabled
     const submitButton = form.querySelector("button[type='submit']");
     if (submitButton) submitButton.disabled = false;
   }

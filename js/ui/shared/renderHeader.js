@@ -51,6 +51,9 @@ export function renderHeader() {
   const logoutIcon = document.createElement("img");
   logoutIcon.classList.add("w-5", "lg:w-6", "xl:w-7");
   logoutIcon.src = "/images/logout.png";
+  logoutIcon.addEventListener("click", () => {
+    localStorage.removeItem("username");
+  });
   logoutIcon.alt = "message icon";
   logoutLink.appendChild(logoutIcon);
   logoutIconContainer.appendChild(logoutLink);

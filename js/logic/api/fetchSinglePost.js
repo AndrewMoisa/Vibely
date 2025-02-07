@@ -1,14 +1,14 @@
 import { postsUrl } from "../../constants/constants.js";
-import { createFetchOptions } from "../../logic/utils/createFetchOptions.js";
+import { createFetchOptions } from "../utils/createFetchOptions.js";
 
-export async function singlePost(id) {
+export async function fetchSinglePost(id) {
   if (!id) {
     throw new Error("No id provided, post not found");
   }
 
   const options = createFetchOptions("GET");
 
-  const url = `${postsUrl}/${id}/?_author=true`;
+  const url = `${postsUrl}/${id}/?_author=true&_comments=true&_reactions=true`;
 
   const response = await fetch(url, options);
   const json = await response.json();
