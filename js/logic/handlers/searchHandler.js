@@ -49,7 +49,7 @@ export function searchHandler(feedContainer, currentScrollListener) {
       }
     });
   } else {
-    console.error("Search button or input not found in the DOM");
+    throw new Error("Search button or input not found in the DOM");
   }
 
   async function getPosts(query) {

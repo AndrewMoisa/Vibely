@@ -26,9 +26,10 @@ export async function postHandler() {
     const { data: data } = await fetchSinglePost(id);
     const author = data.author.name;
 
-    initialPost(mainContainer, name);
-    renderPosts(mainContainer, [data]);
-    createCommentHandler();
+    initialPost(mainContainer, name); // Render the initial post
+    renderPosts(mainContainer, [data]); // Render the post content related to infinite scroll
+    createCommentHandler(); // Create a comment
+    // Delete button
     deleteButton(data.id, user, author, mainContainer);
 
     const editButton = document.querySelector("#editButton");

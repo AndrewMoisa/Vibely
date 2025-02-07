@@ -28,6 +28,7 @@ async function submitForm(event) {
     fieldset.disabled = true;
     button.textContent = "Loading...";
     const response = await loginUser(data);
+    console.log(response);
     const { data: userData } = response;
 
     console.log(userData);
