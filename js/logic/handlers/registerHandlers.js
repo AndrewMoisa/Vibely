@@ -34,6 +34,7 @@ async function submitForm(event) {
     fieldset.disabled = true;
     button.disabled = true;
     await registerUser(data);
+
     displayMessage(
       containerMsg,
       types.success.classes,

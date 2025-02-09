@@ -11,7 +11,7 @@ export function filterHandler(posts, feedContainer, currentScrollListener) {
 
   filter.addEventListener("change", function () {
     try {
-      feedContainer.innerHTML = ""; // Clear the feed container
+      feedContainer.innerHTML = "";
 
       // Clean up the previous scroll listener
       if (currentScrollListener) {
