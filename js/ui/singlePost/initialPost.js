@@ -6,7 +6,7 @@ export function initialPost(mainContainer, name) {
   const backLink = document.createElement("a");
   backLink.href = `/profile/?name=${name}`;
   backLink.className =
-    "underline decoration-violet-800 text-violet-800 sm:text-sm";
+    "underline decoration-violet-800 text-violet-800 sm:text-sm md:text-base lg:text-lg";
   backLink.textContent = "< Back to profile";
 
   backLinkDiv.appendChild(backLink);

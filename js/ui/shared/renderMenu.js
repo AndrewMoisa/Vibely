@@ -48,7 +48,7 @@ export function renderMenu() {
     const img = document.createElement("img");
     img.src = item.imgSrc;
     img.alt = item.alt;
-    img.className = "w-6 lg:w-6 xl:w-7";
+    img.className = "w-6 lg:w-7 xl:w-8";
 
     // Check if the link's href matches the current page's URL
     if (item.href === currentPageUrl) {

@@ -2,11 +2,11 @@ import { deletePost } from "../../logic/api/deletePost.js";
 
 export function deleteButton(id, user, author, container) {
   const buttonsDiv = document.createElement("div");
-  buttonsDiv.className = "flex justify-end gap-2 mt-2";
+  buttonsDiv.className = "flex justify-end gap-2 mt-2 mb-10";
 
   const editButton = document.createElement("button");
   editButton.className =
-    "bg-blue-500 text-white px-3 py-1 rounded-sm hover:bg-blue-700";
+    "text-sm bg-blue-500 text-white px-3 py-1 rounded-sm hover:bg-blue-700 md:text-base  md:rounded-md md:hover:bg-blue-700 lg:text-lg  lg:rounded-lg lg:hover:bg-blue-700";
   editButton.textContent = "Edit";
   editButton.id = "editButton";
   editButton.addEventListener("click", () => {
@@ -15,7 +15,7 @@ export function deleteButton(id, user, author, container) {
 
   const deleteButton = document.createElement("button");
   deleteButton.className =
-    "bg-red-500 text-white px-3 py-1 rounded-sm hover:bg-red-700";
+    "text-sm bg-red-500 text-white px-3 py-1 rounded-sm hover:bg-red-700 md:text-base  md:rounded-md md:hover:bg-red-700 lg:text-lg  lg:rounded-lg lg:hover:bg-red-700";
   deleteButton.textContent = "Delete";
   deleteButton.id = "deleteButton";
 
