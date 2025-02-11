@@ -31,8 +31,8 @@ function router() {
       renderMenu();
       break;
 
-    case "/posts/index.html":
-    case "/posts/":
+    case "/create/index.html":
+    case "/create/":
       renderHeader();
       renderMenu();
       createPostHandler();

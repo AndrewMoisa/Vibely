@@ -16,6 +16,7 @@ export async function postsHandler() {
     // Clear the container
     const loadingContainer = document.querySelector("#loadingContainer");
     loadingContainer.innerHTML = "";
+    feedContainer.innerHTML = "";
 
     // Fetch posts
     const { data: posts } = await fetchMultiplePosts();

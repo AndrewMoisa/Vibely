@@ -5,6 +5,8 @@ import { createPost } from "../api/createPosts.js";
 
 export async function createPostHandler() {
   document.querySelector("#loadingContainer").innerHTML = "";
+  const container = document.querySelector("#feedContainer");
+  container.innerHTML = "";
 
   renderCreatePost("Create");
 

@@ -11,6 +11,9 @@ import { followProfileHandler } from "./followProfileHandler.js";
 export async function profileHandler() {
   try {
     const mainContainer = document.querySelector("#feedContainer");
+
+    mainContainer.innerHTML = "";
+
     const loadingElement = document.querySelector("#loadingContainer");
     let name = getUsername();
     const username = getUsername();

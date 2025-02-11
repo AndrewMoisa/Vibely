@@ -16,6 +16,7 @@ export async function postHandler() {
     const user = getUsername();
 
     const mainContainer = document.querySelector("#feedContainer");
+    mainContainer.innerHTML = "";
     const section = document.createElement("section");
     section.classList.add("singlePost");
 

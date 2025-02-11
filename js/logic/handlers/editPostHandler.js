@@ -6,6 +6,8 @@ import { getQueryParam } from "../shared/getQueryParam.js";
 
 export async function editPostHandler() {
   document.querySelector("#loadingContainer").innerHTML = "";
+  const container = document.querySelector("#feedContainer");
+  container.innerHTML = "";
 
   renderCreatePost("Edit");
 

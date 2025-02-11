@@ -26,7 +26,7 @@ export function renderMenu() {
       text: "Search",
     },
     {
-      href: "/posts/",
+      href: "/create/",
       imgSrc: "/images/add.png",
       alt: "create post icon",
       text: "Create",
