@@ -5,8 +5,6 @@ import { renderLoginMessage } from "../../ui/register/renderLoginMessage.js";
 import { renderRegisterForm } from "../../ui/register/renderRegisterForm.js";
 
 export function registerHandler() {
-  const container = document.querySelector("#feedContainer");
-  container.innerHTML = "";
   // render the form
   renderRegisterForm();
 
