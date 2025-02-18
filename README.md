@@ -75,7 +75,7 @@ This project utilizes the **Noroff Social API**, specifically the **Social Endpo
 - **JavaScript (ES6+)** - Core language for front-end logic
 - **HTML & CSS** - UI design
 - **LocalStorage** - Storing JWT tokens
-- **CSS Framework (Optional)** - For styling (e.g., Bootstrap, Tailwind CSS)
+- **CSS Framework** - For styling with Tailwind CSS
 
 ---
 
