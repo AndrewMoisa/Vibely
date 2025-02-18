@@ -1,4 +1,5 @@
 import { registerUrl } from "../../constants/constants.js";
+import { createFetchOptions } from "../utils/createFetchOptions.js";
 
 export async function registerUser(user) {
   const url = registerUrl;

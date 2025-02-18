@@ -1,15 +1,8 @@
 import { profileUrl } from "../../constants/constants.js";
 import { createFetchOptions } from "../utils/createFetchOptions.js";
-import { getUsername } from "../utils/storage.js";
 
-export async function fetchProfilePosts() {
-  const name = getUsername();
-
-  if (!name) {
-    throw new Error("No username in local storage");
-  }
-
-  const url = `${profileUrl}${name}/posts`;
+export async function fetchProfileDetails(name) {
+  const url = `${profileUrl}${name}?&_following=true&_followers=true`;
 
   const options = createFetchOptions("GET");
 

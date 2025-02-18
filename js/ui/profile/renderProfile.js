@@ -1,9 +1,7 @@
-export function renderProfile(data, container) {
-  // Clear the container
-  document.querySelector("#loadingContainer").innerHTML = "";
-
+export function renderProfile(data, container, name) {
   // Create the section element
   const section = document.createElement("section");
+  section.className = "border-b border-gray-200";
 
   // Create the first div (profile picture and stats)
   const div1 = document.createElement("div");
@@ -12,7 +10,8 @@ export function renderProfile(data, container) {
   // Create the profile picture div
   const profilePicDiv = document.createElement("div");
   const profileImg = document.createElement("img");
-  profileImg.className = "rounded-full w-20 md:w-24 lg:w-32 xl:w-36";
+  profileImg.className =
+    "rounded-full w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-36 xl:h-36";
   profileImg.src = "/images/guest.png";
   profileImg.src = data.avatar.url ? data.avatar.url : "/images/guest.png";
   profileImg.alt = data.avatar.alt ? data.avatar.alt : "Profile Picture";
@@ -60,10 +59,28 @@ export function renderProfile(data, container) {
   bioDiv.appendChild(bioParagraph);
 
   // Create the follow button
+
+  const isFollowing =
+    Array.isArray(data.followers) &&
+    data.followers.some((follower) => {
+      return follower.name === name;
+    });
+
   const followButton = document.createElement("a");
+  followButton.id = "followButton";
+  followButton.dataset.user = data.name;
   followButton.className =
-    "flex justify-center text-sm bg-blue-500 text-white rounded-sm p-1 mx-2 my-3 md:text-base lg:text-lg xl:text-xl hover:bg-blue-600 cursor-pointer font-bold";
-  followButton.textContent = "Follow";
+    "flex justify-center text-sm bg-blue-500 text-white rounded-xs p-1 mx-2 my-3 md:text-base lg:text-lg xl:text-xl hover:bg-blue-600 cursor-pointer font-bold";
+
+  if (isFollowing) {
+    followButton.textContent = "Unfollow";
+  } else {
+    followButton.textContent = "Follow";
+  }
+
+  if (name === data.name) {
+    followButton.style.display = "none";
+  }
 
   // Append name, bio, and follow button to the second div
   div2.appendChild(nameDiv);
@@ -92,4 +109,6 @@ export function renderProfile(data, container) {
 
     return statDiv;
   }
+
+  return section;
 }

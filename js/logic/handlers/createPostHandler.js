@@ -1,17 +1,16 @@
-import { registerUser } from "../api/registerUser.js";
+import { renderCreatePost } from "../../ui/createPost/renderCreatePost.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { types } from "../../ui/shared/errorsStyles.js";
-import { renderLoginMessage } from "../../ui/register/renderLoginMessage.js";
-import { renderRegisterForm } from "../../ui/register/renderRegisterForm.js";
+import { createPost } from "../api/createPosts.js";
 
-export function registerHandler() {
+export async function createPostHandler() {
+  document.querySelector("#loadingContainer").innerHTML = "";
   const container = document.querySelector("#feedContainer");
   container.innerHTML = "";
-  // render the form
-  renderRegisterForm();
 
-  const form = document.querySelector("#registerForm");
+  renderCreatePost("Create");
 
+  const form = document.querySelector("#createPost");
   if (form) {
     form.addEventListener("submit", submitForm);
   }
@@ -24,8 +23,22 @@ async function submitForm(event) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
 
-  if (data.bio.trim() === "") {
-    delete data.bio;
+  if (data.mediaUrl || data.mediaAlt) {
+    data.media = {};
+
+    if (data.mediaUrl) {
+      data.media.url = data.mediaUrl.trim();
+    }
+
+    if (data.mediaAlt) {
+      data.media.alt = data.mediaAlt.trim();
+    }
+
+    delete data.mediaUrl;
+    delete data.mediaAlt;
+  } else {
+    delete data.mediaUrl;
+    delete data.mediaAlt;
   }
 
   const containerMsg = document.querySelector("#message");
@@ -35,16 +48,13 @@ async function submitForm(event) {
   try {
     fieldset.disabled = true;
     button.disabled = true;
-    await registerUser(data);
-
+    await createPost(data);
     displayMessage(
       containerMsg,
       types.success.classes,
-      "Registration successful",
+      "Post created successful",
       types.success.icon
     );
-
-    renderLoginMessage(containerMsg);
 
     form.reset();
   } catch (error) {

@@ -3,6 +3,11 @@ import { registerHandler } from "./logic/handlers/registerHandlers.js";
 import { profileHandler } from "./logic/handlers/profileHandler.js";
 import { renderMenu } from "./ui/shared/renderMenu.js";
 import { renderHeader } from "./ui/shared/renderHeader.js";
+import { createPostHandler } from "./logic/handlers/createPostHandler.js";
+import { postHandler } from "./logic/handlers/postHandler.js";
+import { editPostHandler } from "./logic/handlers/editPostHandler.js";
+import { postsHandler } from "./logic/handlers/postsHandlers.js";
+import { followProfileHandler } from "./logic/handlers/followProfileHandler.js";
 
 function router() {
   const pathname = window.location.pathname;
@@ -16,20 +21,46 @@ function router() {
     case "/register/index.html":
     case "/register/":
       registerHandler();
+
       break;
 
     case "/profile/index.html":
     case "/profile/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
-      document.addEventListener("DOMContentLoaded", profileHandler);
+      renderHeader();
+      profileHandler();
+      renderMenu();
+      break;
+
+    case "/create/index.html":
+    case "/create/":
+      renderHeader();
+      renderMenu();
+      createPostHandler();
+      break;
+
+    case "/post/index.html":
+    case "/post/":
+      renderHeader();
+      renderMenu();
+      postHandler();
 
       break;
 
-    case "/posts/index.html":
-    case "/posts/":
-      document.addEventListener("DOMContentLoaded", renderHeader);
-      document.addEventListener("DOMContentLoaded", renderMenu);
+    case "/edit/index.html":
+    case "/edit/":
+      renderHeader();
+      renderMenu();
+      editPostHandler();
+
+      break;
+
+    case "/feed/index.html":
+    case "/feed/":
+      renderHeader();
+      renderMenu();
+      postsHandler();
+
+      break;
   }
 }
 

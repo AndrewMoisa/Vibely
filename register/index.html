@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | Vibely</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/output.css" />
     <link
       rel="shortcut icon"
       href="/images/favicon.ico"
@@ -13,92 +13,8 @@
     <script type="module" src="/js/app.js"></script>
   </head>
   <body class="h-screen w-screen flex flex-col justify-center items-center">
-    <header>
-      <section>
-        <img class="w-full" src="../images/logo.svg" alt="Vibely" />
-      </section>
-    </header>
-    <main>
-      <section class="pt-12">
-        <div class="flex">
-          <form id="registerForm">
-            <h1 class="text-sm text-left font-semibold my-2">
-              Register into Vibely
-            </h1>
-            <div id="message"></div>
-            <fieldset>
-              <div class="my-2">
-                <label for="name"></label>
-                <input
-                  class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Name"
-                  aria-describedby="nameHelp"
-                  required
-                />
-              </div>
-              <div class="my-2">
-                <label for="email"></label>
-                <input
-                  class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  pattern="^[^@]+@(stud\.|)(noroff\.no)$"
-                  title="Please use a valid Noroff email address"
-                  aria-describedby="emailHelp"
-                  required
-                />
-              </div>
-              <div class="my-2">
-                <label for="password"></label>
-                <input
-                  class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  minlength="8"
-                  required
-                />
-              </div>
-              <div class="my-2">
-                <label for="bio"></label>
-                <textarea
-                  class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
-                  id="bio"
-                  name="bio"
-                  placeholder="Bio"
-                  rows="3"
-                ></textarea>
-              </div>
-              <div class="my-2">
-                <label for="profileImage"></label>
-                <input
-                  class="bg-gray-100 border border-gray-400 rounded-sm p-2 w-80 placeholder:text-xs"
-                  type="url"
-                  id="profileImage"
-                  name="profileImage"
-                  aria-describedby="profileImageHelp"
-                  placeholder="Profile Image URL"
-                />
-              </div>
-            </fieldset>
-            <div class="my-5">
-              <button
-                class="flex justify-center w-full bg-blue-500 text-white p-2 rounded-md text-sm hover:bg-blue-600"
-                type="submit"
-              >
-                Register
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
+    <header></header>
+    <main></main>
     <footer></footer>
   </body>
 </html>
