@@ -1,3 +1,10 @@
+/**
+ * Fetches a single post by its ID, including author, comments, and reactions.
+ *
+ * @param {string} id - The ID of the post to fetch.
+ * @returns {Promise<Object>} - A promise that resolves to the fetched post data.
+ * @throws {Error} - Throws an error if no ID is provided or if the request fails.
+ */
 import { postsUrl } from "../../constants/constants.js";
 import { createFetchOptions } from "../utils/createFetchOptions.js";
 
@@ -7,7 +14,6 @@ export async function fetchSinglePost(id) {
   }
 
   const options = createFetchOptions("GET");
-
   const url = `${postsUrl}/${id}/?_author=true&_comments=true&_reactions=true`;
 
   const response = await fetch(url, options);

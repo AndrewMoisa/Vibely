@@ -1,3 +1,8 @@
+/**
+ * Handles fetching and rendering a single post, along with related UI elements like comments and deletion.
+ *
+ * This function retrieves a post based on the query parameters and updates the UI accordingly.
+ */
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { loadingContainer } from "../../constants/constants.js";
 import { types } from "../../ui/shared/errorsStyles.js";
