@@ -1,3 +1,19 @@
+/**
+ * Handles fetching and rendering a user profile along with their posts.
+ *
+ * This function retrieves the profile details and posts based on the username
+ * and updates the UI accordingly. It also manages the follow button functionality.
+ *
+ * @returns {Promise<void>} - A promise that resolves when the profile and posts are rendered.
+ * @throws {Error} - Throws an error if no username is found or if the request fails.
+ *
+ * @example
+ * try {
+ *   await profileHandler();
+ * } catch (error) {
+ *   console.error(error.message);
+ * }
+ */
 import { renderProfile } from "../../ui/profile/renderProfile.js";
 import { displayMessage } from "../../ui/shared/displayMessage.js";
 import { fetchProfileDetails } from "../api/fetchProfileDetails.js";
@@ -11,7 +27,6 @@ import { followProfileHandler } from "./followProfileHandler.js";
 export async function profileHandler() {
   try {
     const mainContainer = document.querySelector("#feedContainer");
-
     mainContainer.innerHTML = "";
 
     const loadingElement = document.querySelector("#loadingContainer");
@@ -22,7 +37,6 @@ export async function profileHandler() {
     }
 
     const newname = getQueryParam("name");
-
     if (newname) {
       name = newname;
     }

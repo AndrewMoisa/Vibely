@@ -4,6 +4,14 @@
  * @param {string} id - The ID of the post to fetch.
  * @returns {Promise<Object>} - A promise that resolves to the fetched post data.
  * @throws {Error} - Throws an error if no ID is provided or if the request fails.
+ *
+ * @example
+ * try {
+ *   const post = await fetchSinglePost("123");
+ *   console.log(post);
+ * } catch (error) {
+ *   console.error(error.message);
+ * }
  */
 import { postsUrl } from "../../constants/constants.js";
 import { createFetchOptions } from "../utils/createFetchOptions.js";
