@@ -1,4 +1,6 @@
-# Social Media Platform Frontend
+# Vibely — Social Media Platform Frontend
+
+> Noroff Front-end Development — **CSS Frameworks**, styled with Tailwind CSS. Live site: [andrew-social.netlify.app](https://andrew-social.netlify.app/)
 
 ## 📌 Project Goal
 The goal of this project is to apply JavaScript knowledge to implement the front-end functionality of a social media application. The application should be attractive, responsive, and interact seamlessly with the provided Social API.
