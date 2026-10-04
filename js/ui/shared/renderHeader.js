@@ -41,7 +41,7 @@ export function renderHeader() {
   const heartIcon = document.createElement("img");
   heartIcon.classList.add("w-5", "lg:w-6", "xl:w-7");
   heartIcon.src = "/images/heart.png";
-  heartIcon.alt = "heart icon";
+  heartIcon.alt = "Liked posts";
   heartIconContainer.appendChild(heartIcon);
 
   // Create the logout icon
@@ -54,7 +54,7 @@ export function renderHeader() {
   logoutIcon.addEventListener("click", () => {
     localStorage.removeItem("username");
   });
-  logoutIcon.alt = "message icon";
+  logoutIcon.alt = "Log out";
   logoutLink.appendChild(logoutIcon);
   logoutIconContainer.appendChild(logoutLink);
 

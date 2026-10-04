@@ -26,7 +26,10 @@ export function renderPosts(container, posts) {
     const image = document.createElement("img");
     image.className = "object-fit rounded-xs mx-auto w-full";
     image.src = imageUrl;
-    image.alt = "User avatar";
+    // Describe the post image itself, not the author
+    image.alt = post.media?.alt || post.title || `Post by ${author}`;
+    image.loading = "lazy";
+    image.decoding = "async";
 
     // Create the action icons container
     const actionsContainer = document.createElement("div");
